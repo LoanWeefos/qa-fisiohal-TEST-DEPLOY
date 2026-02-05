@@ -1,0 +1,2 @@
+safeFindAndClick ERROR → //button[normalize-space()='Next'] | Waiting for element to be located By(xpath, //button[normalize-space()='Next'])
+Wait timed out after 15178ms

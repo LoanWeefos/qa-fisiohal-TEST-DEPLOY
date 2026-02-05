@@ -1,0 +1,1 @@
+Intentando click → //lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]

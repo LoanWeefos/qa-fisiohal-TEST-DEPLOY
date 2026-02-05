@@ -1,0 +1,2 @@
+safeFindAndClick ERROR → //a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')] | Waiting until element is visible
+Wait timed out after 15135ms

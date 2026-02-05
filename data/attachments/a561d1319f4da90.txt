@@ -1,0 +1,1 @@
+Intentando click → //a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]

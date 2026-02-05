@@ -1,0 +1,1 @@
+Click OK → //table//a[normalize-space()='Test Durán']

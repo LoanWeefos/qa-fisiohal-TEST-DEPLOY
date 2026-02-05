@@ -1,0 +1,2 @@
+
+Ejecutando TC13 — Comprobar visibilidad de los campos: Nombre contacto de emergencia, parentesco, número de teléfono familiar responsable por usuario | 13 de 105

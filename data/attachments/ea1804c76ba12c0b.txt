@@ -1,0 +1,1 @@
+Intentando click → //button[@aria-label='Choose an object']

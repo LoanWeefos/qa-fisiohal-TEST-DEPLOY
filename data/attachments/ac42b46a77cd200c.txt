@@ -1,0 +1,1 @@
+Intentando click → //a[contains(@data-label,'Accounts')]

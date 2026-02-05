@@ -1,0 +1,2 @@
+safeFindAndClick ERROR → //lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')] | Waiting for element to be located By(xpath, //lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')])
+Wait timed out after 15120ms

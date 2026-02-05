@@ -1,0 +1,1 @@
+Click OK → //button[@name='Account.Agenda_Cita']

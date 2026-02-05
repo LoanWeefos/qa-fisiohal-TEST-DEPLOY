@@ -1,0 +1,2 @@
+
+Ejecutando TC105 — Validar que se muestre la información llenada por el usuario de la valoración inicial | 105 de 105

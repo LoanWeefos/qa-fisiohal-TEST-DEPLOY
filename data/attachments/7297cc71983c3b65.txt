@@ -1,0 +1,1 @@
+Intentando click → //table//a[normalize-space()='TEST TEST']

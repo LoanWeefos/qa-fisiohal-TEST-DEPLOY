@@ -1,0 +1,2 @@
+
+Ejecutando TC17 — Verificar que el campo Número de telefono familiar responsable solo acepte números | 17 de 105

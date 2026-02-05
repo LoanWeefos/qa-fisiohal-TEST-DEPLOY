@@ -1,0 +1,1 @@
+Click OK → //button[contains(@class,'search-button') and @aria-label='Search']

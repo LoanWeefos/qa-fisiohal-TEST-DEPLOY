@@ -1,0 +1,1 @@
+Intentando click → //button[normalize-space()='Next']
