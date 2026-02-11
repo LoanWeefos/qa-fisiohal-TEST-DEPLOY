@@ -16,6 +16,7 @@
     "allure:serve": "allure serve allure-results",
 
     "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:single": "allure generate --single-file allure-results --clean -o allure-report",
     "report:deploy": "npm run report:generate && gh-pages -d allure-report"
   },
   "keywords": [],
