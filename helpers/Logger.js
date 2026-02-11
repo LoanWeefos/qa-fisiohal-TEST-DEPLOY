@@ -1,6 +1,6 @@
 // helpers/logger.js
 const { createLogger, format, transports } = require("winston");
-const AllureTransport = require("./AllureTransport");
+const AllureTransport = require("./allureTransport");
 
 const COLORS = {
   info: "\x1b[32m",

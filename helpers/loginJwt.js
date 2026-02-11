@@ -11,7 +11,7 @@ const {
   USERNAME,
   LOGIN_URL,
   PRIVATE_KEY_PATH,
-} = require("./Config");
+} = require("./config");
 
 const privateKey = fs.readFileSync(PRIVATE_KEY_PATH, "utf8");
 

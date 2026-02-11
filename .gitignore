@@ -41,3 +41,7 @@ screenshots/*
 # Temporary files
 tmp/
 temp/
+
+# Allure reports
+allure-results/
+allure-report/

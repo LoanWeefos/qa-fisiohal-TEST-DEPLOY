@@ -12,9 +12,11 @@
     "test:valoracion:terapeuta": "mocha \"./tests/main.ValoracionInicialTerapeuta.test.js\" --reporter allure-mocha",
     "test:valoracion:secretaria": "mocha \"./tests/main.ValoracionInicialSecretaria.test.js\" --reporter allure-mocha",
     "test:valoracion:coordinacion": "mocha \"./tests/main.ValoracionInicialCoordinacion.test.js\" --reporter allure-mocha",
-
     "allure:generate": "allure generate allure-results --clean -o allure-report",
-    "allure:serve": "allure serve allure-results"
+    "allure:serve": "allure serve allure-results",
+
+    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:deploy": "npm run report:generate && gh-pages -d allure-report"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "allure-commandline": "^2.35.1",
     "allure-mocha": "^3.4.3",
+    "gh-pages": "^6.3.0",
     "mocha": "^11.7.5"
   }
 }
