@@ -13,7 +13,7 @@ const {
   PRIVATE_KEY_PATH,
 } = require("./config");
 
-const privateKey = fs.readFileSync(PRIVATE_KEY_PATH, "utf8");
+const privateKey = process.env.SF_PRIVATE_KEY;
 
 function createJwt(usernameOverride) {
   return jwt.sign(
