@@ -30,3 +30,11 @@ jobs:
         env:
           SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
 
+      - name: Generate Allure Report
+        run: npm run report:single
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-cuentas-externo
+          path: allure-report
