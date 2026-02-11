@@ -27,7 +27,6 @@ jobs:
 
       - name: 🧪 Run tests
         run: npm run test:cuentasexterno
-        continue-on-error: true
         env:
           SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
 
