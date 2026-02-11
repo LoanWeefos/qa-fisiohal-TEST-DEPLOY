@@ -7,7 +7,7 @@
     "test:all": "mocha \"tests/*.test.js\" --reporter allure-mocha",
     "test:hospitalizacion": "mocha ./tests/main.CitasHospitalizacion.test.js --reporter allure-mocha",
     "test:externo": "mocha ./tests/main.CitasExterno.test.js --reporter allure-mocha",
-    "test:cuentasexterno": "mocha ./tests/main.CuentasExterno.test.js --reporter allure-mocha",
+    "test:cuentasexterno": "mocha ./tests/main.CuentasExterno.test.js --reporter spec"
     "test:valoracion": "mocha \"./tests/main.ValoracionInicialTerapeuta.test.js\" \"./tests/main.ValoracionInicialSecretaria.test.js\" \"./tests/main.ValoracionInicialCoordinacion.test.js\" --reporter allure-mocha",
     "test:valoracion:terapeuta": "mocha \"./tests/main.ValoracionInicialTerapeuta.test.js\" --reporter allure-mocha",
     "test:valoracion:secretaria": "mocha \"./tests/main.ValoracionInicialSecretaria.test.js\" --reporter allure-mocha",
