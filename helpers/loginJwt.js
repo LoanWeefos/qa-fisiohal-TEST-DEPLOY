@@ -52,12 +52,25 @@ async function loginJwt(retURL, usernameOverride = null) {
     : `${instance_url}/secur/frontdoor.jsp?sid=${access_token}`;
 
   const options = new edge.Options();
+
+  const isCI = process.env.CI === "true";
+  
   options.addArguments(
     "--disable-popup-blocking",
     "--disable-infobars",
     "--log-level=3",
     "--silent"
   );
+  
+  if (isCI) {
+    options.addArguments(
+      "--headless=new",
+      "--no-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--window-size=1920,1080"
+    );
+  }
 
   const driver = await new Builder()
     .forBrowser("MicrosoftEdge")
