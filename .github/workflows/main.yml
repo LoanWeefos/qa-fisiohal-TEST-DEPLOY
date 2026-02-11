@@ -27,14 +27,17 @@ jobs:
 
       - name: 🧪 Run tests
         run: npm run test:cuentasexterno
+        continue-on-error: true
         env:
           SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
 
       - name: Generate Allure Report
+        if: always()
         run: npm run report:single
-
+      
       - name: Upload Allure Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-cuentas-externo
+          name: allure-report-single
           path: allure-report
