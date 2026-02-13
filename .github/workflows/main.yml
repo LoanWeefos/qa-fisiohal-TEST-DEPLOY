@@ -7,36 +7,134 @@ on:
     branches: [ main ]
 
 jobs:
-  run-tests:
+
+  hospitalizacion:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 📥 Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install dependencies
-        run: npm install
+      - run: npm install
 
-      - name: 🌐 Setup Edge
-        uses: browser-actions/setup-edge@v1
+      - uses: browser-actions/setup-edge@v1
 
-      - name: 🧪 Run tests
+      - name: 🧪 Run Hospitalizacion
+        run: npm run test:hospitalizacion
+        env:
+          SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
+
+      - name: 📦 Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-hospitalizacion
+          path: allure-results
+
+
+  externo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - uses: browser-actions/setup-edge@v1
+
+      - name: 🧪 Run Externo
+        run: npm run test:externo
+        env:
+          SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
+
+      - name: 📦 Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-externo
+          path: allure-results
+
+
+  cuentasexterno:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - uses: browser-actions/setup-edge@v1
+
+      - name: 🧪 Run Cuentas Externo
         run: npm run test:cuentasexterno
         env:
           SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
 
-      - name: Generate Allure Report
-        if: always()
-        run: npm run report:single
-      
-      - name: Upload Allure Report
+      - name: 📦 Upload results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-single
+          name: allure-results-cuentasexterno
+          path: allure-results
+
+
+  valoracion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - uses: browser-actions/setup-edge@v1
+
+      - name: 🧪 Run Valoracion
+        run: npm run test:valoracion
+        env:
+          SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
+
+      - name: 📦 Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-valoracion
+          path: allure-results
+
+
+  generate-report:
+    runs-on: ubuntu-latest
+    needs:
+      - hospitalizacion
+      - externo
+      - cuentasexterno
+      - valoracion
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - name: 📥 Download all results
+        uses: actions/download-artifact@v4
+        with:
+          path: merged-results
+
+      - name: 🔀 Merge Allure Results
+        run: |
+          mkdir allure-results
+          find merged-results -type f -name "*.json" -exec cp {} allure-results/ \;
+
+      - name: 📊 Generate Single Page Report
+        run: npx allure generate allure-results --clean -o allure-report --single-file
+
+      - name: 📤 Upload Final Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-final
           path: allure-report
