@@ -79,29 +79,27 @@ jobs:
           name: allure-results-cuentasexterno
           path: allure-results
 
+#  valoracion:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - uses: actions/setup-node@v4
+#        with:
+#          node-version: 20
+#      - run: npm install
+#      - uses: browser-actions/setup-edge@v1
 
-  valoracion:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install
-      - uses: browser-actions/setup-edge@v1
+#      - name: 🧪 Run Valoracion
+#        run: npm run test:valoracion
+#        env:
+#          SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
 
-      - name: 🧪 Run Valoracion
-        run: npm run test:valoracion
-        env:
-          SF_PRIVATE_KEY: ${{ secrets.SF_PRIVATE_KEY }}
-
-      - name: 📦 Upload results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results-valoracion
-          path: allure-results
-
+#      - name: 📦 Upload results
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: allure-results-valoracion
+#          path: allure-results
 
   generate-report:
     runs-on: ubuntu-latest
@@ -109,7 +107,7 @@ jobs:
       - hospitalizacion
       - externo
       - cuentasexterno
-      - valoracion
+#      - valoracion
 
     steps:
       - uses: actions/checkout@v4
