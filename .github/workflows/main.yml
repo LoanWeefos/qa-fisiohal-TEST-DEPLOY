@@ -83,7 +83,7 @@ jobs:
           name: allure-results-cuentasexterno
           path: allure-results
 
-   valoracion:
+  valoracion:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
