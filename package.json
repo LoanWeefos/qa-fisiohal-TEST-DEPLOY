@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:all": "mocha \"tests/*.test.js\" --reporter allure-mocha",
-    "test:hospitalizacion": "mocha ./tests/main.CitasHospitalizacion.test.js --reporter allure-mocha",
+    "test:hospitalizacion": "mocha ./tests/main.CitasHospitalizacion.test.js --reporter spec --exit",
     "test:externo": "mocha ./tests/main.CitasExterno.test.js --reporter allure-mocha",
     "test:cuentasexterno": "mocha ./tests/main.CuentasExterno.test.js --reporter allure-mocha",
     "test:valoracion": "mocha \"./tests/main.ValoracionInicialTerapeuta.test.js\" \"./tests/main.ValoracionInicialSecretaria.test.js\" \"./tests/main.ValoracionInicialCoordinacion.test.js\" --reporter allure-mocha",
