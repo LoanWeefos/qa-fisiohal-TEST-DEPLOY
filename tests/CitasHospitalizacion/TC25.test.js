@@ -47,7 +47,7 @@ describe("TC25 — Validar doble click en Guardar (Work Order única)", function
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);
@@ -65,7 +65,7 @@ describe("TC25 — Validar doble click en Guardar (Work Order única)", function
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña para visualizar las citas en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(2500);
 
@@ -113,25 +113,25 @@ describe("TC25 — Validar doble click en Guardar (Work Order única)", function
       const startDate = await global.helper
         .findOrFail(
           "//flexipage-field[@data-field-id='RecordStartDateField']//lightning-formatted-text",
-          "Fecha inicio"
+          "Fecha inicio - Debe existir un campo que muestre la fecha de inicio de la cita en el detalle de la cita creada"
         )
         .then((e) => e.getText());
 
       const endDate = await global.helper
         .findOrFail(
           "//flexipage-field[@data-field-id='RecordEndDateField']//lightning-formatted-text",
-          "Fecha fin"
+          "Fecha fin - Debe existir un campo que muestre la fecha de fin de la cita en el detalle de la cita creada"
         )
         .then((e) => e.getText());
 
       await global.helper.safeFindAndClick(
         "(//button[@name='Delete'])[1]",
-        "Botón Delete"
+        "Botón Delete - Debe existir un botón 'Delete' para eliminar la cita creada"
       );
 
       await global.helper.safeFindAndClick(
         "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-        "Confirmar Delete"
+        "Confirmar Delete - Debe existir un botón para confirmar la eliminación de la cita"
       );
 
       await global.driver.sleep(1500);
@@ -146,7 +146,7 @@ describe("TC25 — Validar doble click en Guardar (Work Order única)", function
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña para visualizar las citas en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(2500);
 

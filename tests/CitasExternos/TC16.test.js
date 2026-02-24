@@ -20,19 +20,19 @@ describe("TC16 — Validar Parent record solo admite account", function () {
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Solo debe mostrar Account en el combobox de Parent Record", async () => {
     const clearBtn = "//button[@title='Clear Parent Record Selection' and not(@disabled)]";
 
-    await global.helper.safeFindAndClick(clearBtn, "Boton Clear Selection");
+    await global.helper.safeFindAndClick(clearBtn, "Boton Clear Selection - Debe existir el botón 'Clear Parent Record Selection' en la página de cuenta");
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[@aria-label='Choose an object']",
-      "Boton Choose an object"
+      "Boton Choose an object - Debe existir el botón 'Choose an object' en la página de agenda cita"
     );
     await global.driver.sleep(500);
 

@@ -82,16 +82,16 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
       try {
         await global.helper.safeFindAndClick(
           "//button[@name='Account.Agenda_Cita']",
-          "Agendar Cita"
+          "Agendar Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
         );
 
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
 
         const terapiaOption = await global.helper.findOrFail(
           `//span[contains(@class,'slds-visual-picker__figure')]//span[contains(text(),'${terapia}')]`,
-          "Seleccionar terapia"
+          "Seleccionar terapia - Debe existir la terapia en las opciones de selección de terapia"
         );
 
         await global.driver.executeScript(
@@ -99,20 +99,20 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
           terapiaOption
         );
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
 
         await global.helper.safeFindAndClick(
-          "(//div[contains(@class,'runtime_appointmentbookingFlowLocation')]//label)[3]"
+          "(//div[contains(@class,'runtime_appointmentbookingFlowLocation')]//label)[3]", "Seleccionar área - Debe existir el área en las opciones de selección de área"
         );
 
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
 
         const therapistRadio = await global.helper.findOrFail(
           "(//tbody//input[@type='radio'])[1]",
-          "Seleccionar primer terapeuta"
+          "Seleccionar primer terapeuta - Debe existir al menos un terapeuta disponible para seleccionar"
         );
 
         await global.driver.executeScript(
@@ -121,26 +121,26 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
         );
 
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
 
         const slot = await global.helper.findOrFail(
           "(//span[contains(@class,'slds-radio_faux')])[last()]",
-          "Seleccionar horario"
+          "Seleccionar horario - Debe existir al menos un horario disponible para seleccionar"
         );
 
         await global.driver.executeScript("arguments[0].click();", slot);
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Next']"
+          "//button[normalize-space()='Next']", "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
         );
         await global.helper.safeFindAndClick(
-          "//button[normalize-space()='Finish']"
+          "//button[normalize-space()='Finish']", "Botón Finish - Debe existir el botón 'Finish' para finalizar la agenda de la cita"
         );
         await global.driver.sleep(3000);
 
@@ -149,7 +149,7 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
 
         await global.helper.safeFindAndClick(
           "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-          "Pestaña Citas"
+          "Pestaña Citas - Debe existir la pestaña 'Citas'"
         );
         await global.driver.sleep(2500);
 
@@ -169,7 +169,7 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
 
         const evalValue = await global.helper.findOrFail(
           "//flexipage-field[@data-field-id='RecordEvaluacion_Terapeutica_cField']//lightning-formatted-text",
-          "Evaluación Terapéutica"
+          "Evaluación Terapéutica - Debe existir un campo de evaluación terapéutica en la vista de la cita"
         );
 
         foundValue = (await evalValue.getText()).trim();
@@ -178,12 +178,12 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
 
         await global.helper.safeFindAndClick(
           "(//button[@name='Delete'])[2]",
-          "Botón Delete"
+          "Botón Delete - Debe existir el botón 'Delete' para eliminar la cita creada"
         );
 
         await global.helper.safeFindAndClick(
           "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-          "Confirmar Delete"
+          "Confirmar Delete - Debe existir el botón 'Delete' en la ventana de confirmación para eliminar la cita creada"
         );
 
         await global.driver.sleep(1000);
@@ -222,12 +222,12 @@ describe("TC50 — Validar Evaluación Terapéutica por terapia", function () {
         failed.length,
         0,
         `Fallaron ${failed.length} terapias:\n` +
-          failed
-            .map(
-              (f) =>
-                `${f.Terapia} | Esperado: ${f.Esperado} | Encontrado: ${f.Encontrado}`
-            )
-            .join("\n")
+        failed
+          .map(
+            (f) =>
+              `${f.Terapia} | Esperado: ${f.Esperado} | Encontrado: ${f.Encontrado}`
+          )
+          .join("\n")
       );
     } finally {
       if (!global.__runningAll && global.driver) {

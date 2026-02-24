@@ -29,7 +29,7 @@ describe("TC44 — Validar campo Tipo de cirugía y fecha", function () {
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC44 — Validar campo Tipo de cirugía y fecha", function () {
     
     const cirugiaSelect = await global.helper.findOrFail(
       "//select[@name='Alguna_vez_te_han_hecho_una_cirug_a']",
-      "Campo ¿Alguna vez te han hecho una cirugía?"
+      "Campo ¿Alguna vez te han hecho una cirugía? - No se encuentra en el formulario"
     );
 
     await cirugiaSelect.sendKeys("No");

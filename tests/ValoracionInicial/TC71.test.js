@@ -29,7 +29,7 @@ describe("TC71 — Validar campo ¿Ha sentido recientemente mareos, inestabilida
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC71 — Validar campo ¿Ha sentido recientemente mareos, inestabilida
 
     const mareosSelect = await global.helper.findOrFail(
       "//select[@name='Ha_sentido_recientemente_mareos_inestabilidad_o_dificultad_para_mantener_el_equi']",
-      "Campo mareos / inestabilidad"
+      "Campo mareos / inestabilidad - No se encuentra en el formulario"
     );
 
     const optionEls = await mareosSelect.findElements(By.xpath(".//option"));

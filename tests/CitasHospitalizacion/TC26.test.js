@@ -33,12 +33,12 @@ describe("TC26 — Validar espacios en campos obligatorios", function () {
 
     const areaInput = await global.helper.findOrFail(
       areaInputXpath,
-      "Input Área de Atención"
+      "Input Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
 
     await global.helper.safeFindAndClick(
       areaInputXpath,
-      "Campo Área de Atención"
+      "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(150);
 
@@ -60,7 +60,7 @@ describe("TC26 — Validar espacios en campos obligatorios", function () {
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);

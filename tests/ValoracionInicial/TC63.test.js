@@ -29,8 +29,9 @@ describe("TC63 — Validar campo ¿Algún familiar ha tenido problemas de huesos
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
+
 
     await global.driver.sleep(2000);
 
@@ -38,7 +39,7 @@ describe("TC63 — Validar campo ¿Algún familiar ha tenido problemas de huesos
 
     const huesosSelect = await global.helper.findOrFail(
       "//select[@name='Alg_n_familiar_ha_tenido_problemas_de_huesos_o_articulaciones_como_artritis_oste']",
-      "Campo ¿Antecedentes familiares de huesos o articulaciones?"
+      "Campo ¿Antecedentes familiares de huesos o articulaciones? - No se encuentra en el formulario"
     );
 
     const optionEls = await huesosSelect.findElements(By.xpath(".//option"));

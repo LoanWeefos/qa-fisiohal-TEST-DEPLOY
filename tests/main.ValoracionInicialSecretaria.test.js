@@ -18,7 +18,7 @@ describe("📘 FEATURE — Valoración Inicial - Instancia Salesforce", function
 
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Secretaria");
+    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Secretaria\n");
   });
 
   require("./ValoracionInicial/TC04.test.js");

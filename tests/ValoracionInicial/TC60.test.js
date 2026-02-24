@@ -29,7 +29,7 @@ describe("TC60 — Validar campo ¿Qué tipo de enfermedad?, ¿Qué familiar la 
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC60 — Validar campo ¿Qué tipo de enfermedad?, ¿Qué familiar la 
 
     const cardioSelect = await global.helper.findOrFail(
       "//select[@name='Alguien_en_tu_familia_ha_tenido_enfermedades_del_coraz_n_o_cardiovasculares_como']",
-      "Campo ¿Antecedentes cardiovasculares familiares?"
+      "Campo ¿Antecedentes cardiovasculares familiares? - No se encuentra en el formulario"
     );
 
     await cardioSelect.sendKeys("No");

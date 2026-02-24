@@ -24,46 +24,46 @@ describe("TC49 — Validar que no se agende cita sin finalizar flujo", function 
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Botón Agenda Cita"
+      "Botón Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("No debe crear la cita si se cierra el formulario antes de Confirmation", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[contains(text(),'E Drenaje Linfatico')]",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir una opción de terapia llamada 'E Drenaje Linfatico' en la página de agenda cita"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
-    await global.helper.findOrFail("//tbody/tr", "Tabla terapeutas", 20000);
+    await global.helper.findOrFail("//tbody/tr", "Tabla terapeutas - Debe existir una tabla con terapeutas", 20000);
 
     const rowCecilia = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[normalize-space()='Cecilia Ramirez']]",
-      "Fila terapeuta Cecilia Ramirez"
+      "Fila terapeuta Cecilia Ramirez - Debe existir una fila con el nombre 'Cecilia Ramirez' en la tabla de terapeutas"
     );
 
     const therapistRadio = await rowCecilia.findElement(
@@ -78,13 +78,13 @@ describe("TC49 — Validar que no se agende cita sin finalizar flujo", function 
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Botón Today"
+      "Botón Today - Debe existir el botón 'Today' para seleccionar la fecha actual en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
@@ -115,18 +115,18 @@ describe("TC49 — Validar que no se agende cita sin finalizar flujo", function 
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Botón Next"
+      "Botón Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[@title='Cancel and close']",
-      "Botón Cancel and close"
+      "Botón Cancel and close - Debe existir el botón 'Cancel and close' para cancelar la agenda de la cita"
     );
     await global.driver.sleep(3000);
 
@@ -135,7 +135,7 @@ describe("TC49 — Validar que no se agende cita sin finalizar flujo", function 
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir la pestaña 'Citas'"
     );
     await global.driver.sleep(2500);
 
@@ -156,14 +156,14 @@ describe("TC49 — Validar que no se agende cita sin finalizar flujo", function 
     const startDateUI = await global.helper
       .findOrFail(
         "//flexipage-field[@data-field-id='RecordStartDateField']//lightning-formatted-text",
-        "Fecha de inicio"
+        "Fecha de inicio - Debe existir un campo de fecha de inicio en la vista de la cita"
       )
       .then((e) => e.getText());
 
     const endDateUI = await global.helper
       .findOrFail(
         "//flexipage-field[@data-field-id='RecordEndDateField']//lightning-formatted-text",
-        "Fecha de fin"
+        "Fecha de fin - Debe existir un campo de fecha de fin en la vista de la cita"
       )
       .then((e) => e.getText());
 

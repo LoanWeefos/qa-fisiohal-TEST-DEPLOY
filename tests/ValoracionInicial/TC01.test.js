@@ -29,7 +29,7 @@ describe("TC01 — Validar nombre completo", function () {
   it("El campo paciente deberá mostrar el nombre completo del paciente", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC01 — Validar nombre completo", function () {
 
     const pacienteName = await global.helper.findOrFail(
       "//p[normalize-space()='Paciente:']/following-sibling::p[1]",
-      "Nombre del paciente"
+      "Nombre del paciente - Debe mostrar el nombre completo del paciente seleccionado"
     );
 
     const pacienteUI = (await pacienteName.getText()).trim();

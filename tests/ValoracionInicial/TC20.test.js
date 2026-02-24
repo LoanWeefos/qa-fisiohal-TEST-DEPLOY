@@ -29,7 +29,7 @@ describe("TC20 — Validar campo ¿Cómo te gusta que lo / te llamen?, Tienes al
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -39,7 +39,7 @@ describe("TC20 — Validar campo ¿Cómo te gusta que lo / te llamen?, Tienes al
     const apodoInput = await global.helper.findOrFail(
       "//span[normalize-space()='¿Cómo te gusta que lo / te llamen?']" +
       "/ancestor::flowruntime-lwc-field//input",
-      "Campo ¿Cómo te gusta que lo / te llamen?"
+      "Campo ¿Cómo te gusta que lo / te llamen? - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

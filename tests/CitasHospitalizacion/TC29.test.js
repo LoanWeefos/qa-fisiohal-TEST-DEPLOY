@@ -47,7 +47,7 @@ describe("TC29 — Validar horarios disponibles por Médico y Terapia", function
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(
@@ -63,13 +63,13 @@ describe("TC29 — Validar horarios disponibles por Médico y Terapia", function
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search"
+      "Search App Launcher - Debe existir un campo de búsqueda para el App Launcher en la barra de navegación"
     );
 
     await searchInput.clear();
@@ -78,7 +78,7 @@ describe("TC29 — Validar horarios disponibles por Médico y Terapia", function
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario FisioHal - Debe existir una opción para acceder al Calendario FisioHal desde el App Launcher"
     );
 
     await global.driver.sleep(4000);
@@ -96,7 +96,7 @@ describe("TC29 — Validar horarios disponibles por Médico y Terapia", function
 
     const nextBtn = await global.helper.findOrFail(
       "//button[contains(@class,'fc-next-button')]",
-      "Next calendario"
+      "Next calendario - Debe existir un botón para avanzar en el calendario"
     );
 
     let dateVisible = false;
@@ -142,7 +142,7 @@ describe("TC29 — Validar horarios disponibles por Médico y Terapia", function
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and normalize-space()='Citas']",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña para visualizar las citas en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(2000);
 

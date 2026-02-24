@@ -43,38 +43,38 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe mostrar correctamente la información de la cita seleccionada", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir una opción de terapia llamada 'E Drenaje Linfatico' en la página de agenda cita"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
@@ -82,7 +82,7 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
 
     const rowCecilia = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[normalize-space()='Cecilia Ramirez']]",
-      "Fila Cecilia Ramirez"
+      "Fila Cecilia Ramirez - Debe existir una fila con el nombre 'Cecilia Ramirez' en la tabla de terapeutas"
     );
 
     const therapistRadio = await rowCecilia.findElement(
@@ -97,13 +97,13 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Boton Today"
+      "Boton Today - Debe existir el botón 'Today' para seleccionar la fecha actual en el calendario de selección de horario"
     );
     await global.driver.sleep(1200);
 
@@ -153,7 +153,7 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
@@ -165,7 +165,7 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
 
     const patient = await global.helper.findOrFail(
       "//*[text()='TEST TEST']",
-      "Paciente"
+      "Paciente - Debe mostrarse el nombre del paciente 'TEST TEST' en el resumen de la cita"
     );
 
     assert.strictEqual(await patient.getText(), "TEST TEST");
@@ -174,7 +174,7 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
       "//span[normalize-space()='Scheduled Start (America/Mexico_City)']" +
         "/ancestor::div[contains(@class,'slds-form-element')]" +
         "//lightning-formatted-date-time",
-      "Fecha de inicio"
+      "Fecha de inicio - Debe mostrarse la fecha y hora de inicio de la cita en el resumen de la cita"
     );
     const startText = (await startDateElement.getText()).toLowerCase();
 
@@ -182,7 +182,7 @@ describe("TC41 — Validar información mostrada tras elegir horario", function 
       "//span[normalize-space()='Scheduled End (America/Mexico_City)']" +
         "/ancestor::div[contains(@class,'slds-form-element')]" +
         "//lightning-formatted-date-time",
-      "Fecha de fin"
+      "Fecha de fin - Debe mostrarse la fecha y hora de fin de la cita en el resumen de la cita"
     );
     const endText = (await endDateElement.getText()).toLowerCase();
 

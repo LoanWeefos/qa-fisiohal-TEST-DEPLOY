@@ -29,7 +29,7 @@ describe("TC73 — Validar campo ¿Siente que la edad ha afectado su fuerza, equ
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC73 — Validar campo ¿Siente que la edad ha afectado su fuerza, equ
 
     const edadSelect = await global.helper.findOrFail(
       "//select[@name='Siente_que_la_edad_ha_afectado_su_fuerza_equilibrio_o_capacidad_para_moverse_con']",
-      "Campo impacto de la edad"
+      "Campo impacto de la edad - No se encuentra en el formulario"
     );
 
     const optionEls = await edadSelect.findElements(By.xpath(".//option"));

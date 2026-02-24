@@ -21,14 +21,14 @@ describe("TC13 — Abrir Agenda Cita", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe abrir el modal Agenda Cita", async () => {
     const header = await global.helper.findOrFail(
       "//h2[normalize-space()='Agenda Cita']",
-      "Header Agenda Cita"
+      "Header Agenda Cita - Debe existir el header 'Agenda Cita' en el modal de agenda cita"
     );
 
     assert.ok(header);

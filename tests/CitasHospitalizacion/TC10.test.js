@@ -10,6 +10,7 @@ describe("TC10 — Permitir terapia duplicada", function () {
   const expected = {
     AccountName: "Test Durán",
     Therapy: "H Fisica",
+    Area: "Piso 1"
   };
 
   beforeEach(async () => {
@@ -35,22 +36,24 @@ describe("TC10 — Permitir terapia duplicada", function () {
       return items.length;
     };
 
+    await global.helper.selectArea(expected.Area);
+
     const addTherapy = async (therapy) => {
       await global.helper.safeFindAndClick(
         "//button[@name='therapy']",
-        "Botón Terapia"
+        "Botón Terapia - Debe existir un botón para seleccionar la terapia en el formulario de creación de citas de hospitalización"
       );
       await global.driver.sleep(200);
 
       await global.helper.safeFindAndClick(
         `//lightning-base-combobox-item//span[@title='${therapy}']`,
-        `Opción Terapia ${therapy}`
+        `Opción Terapia ${therapy} - Debe existir una opción que contenga '${therapy}' en el campo de Terapia para seleccionar`
       );
       await global.driver.sleep(200);
 
       const addBtn = await global.helper.findOrFail(
         "//button[normalize-space()='Agregar']",
-        "Botón Agregar"
+        "Botón Agregar - Debe existir un botón 'Agregar' para añadir terapias en el formulario de creación de citas de hospitalización"
       );
 
       await addBtn.click();

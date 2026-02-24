@@ -31,7 +31,7 @@ describe("TC23 — Validar frecuencia no válida", function () {
   it("No debe mostrar ni permitir seleccionar una frecuencia inválida", async () => {
     await global.helper.safeFindAndClick(
       "//button[@name='Frequency']",
-      "Menú desplegable Frecuencia"
+      "Menú desplegable Frecuencia - Debe existir un botón para seleccionar la frecuencia en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(300);
 
@@ -49,7 +49,7 @@ describe("TC23 — Validar frecuencia no válida", function () {
 
     const freqBtn = await global.helper.findOrFail(
       "//button[@name='Frequency']",
-      "Dropdown Frecuencia"
+      "Dropdown Frecuencia - Debe existir un botón para seleccionar la frecuencia en el formulario de creación de citas de hospitalización"
     );
 
     const freqValue =

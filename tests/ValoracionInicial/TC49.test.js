@@ -29,7 +29,7 @@ describe("TC49 — Validar campo ¿Alguna vez te han hecho una transfusión de s
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC49 — Validar campo ¿Alguna vez te han hecho una transfusión de s
 
     const transfusionSelect = await global.helper.findOrFail(
       "//select[@name='Alguna_vez_te_han_hecho_una_transfusi_n_de_sangre']",
-      "Campo ¿Alguna vez te han hecho una transfusión de sangre?"
+      "Campo ¿Alguna vez te han hecho una transfusión de sangre? - No se encuentra en el formulario"
     );
 
     const optionEls = await transfusionSelect.findElements(By.xpath(".//option"));

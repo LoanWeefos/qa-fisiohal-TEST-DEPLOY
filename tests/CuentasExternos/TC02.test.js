@@ -24,12 +24,12 @@ describe("TC02 — Validar permisos de creación de Account", function () {
   it("Debe abrir el formulario New Account", async () => {
     await global.helper.safeFindAndClick(
       "//a[@role='button' and @title='New']",
-      "Boton New Account"
+      "Boton New Account - Debe hacer clic en el botón New para abrir el formulario de creación de cuenta"
     );
 
     const modal = await global.helper.findOrFail(
       "//h2[contains(normalize-space(),'New')]",
-      "Modal New Account"
+      "Modal New Account - Debe mostrarse el modal de creación de cuenta al hacer clic en el botón New"
     );
 
     assert.ok(modal);

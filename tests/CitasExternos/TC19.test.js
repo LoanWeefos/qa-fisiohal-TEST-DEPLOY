@@ -22,25 +22,25 @@ describe("TC19 — Validar terapia seleccionada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe mostrar error si no se selecciona terapia", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1000);
     const errorElement = await global.helper.findOrFail(
       "//a[contains(@class,'errorsListLink') and normalize-space()='Select a work type group.']",
-      "Mensaje de error Select a work type group."
+      "Mensaje de error Select a work type group - Debe mostrar error si no se selecciona terapia"
     );
 
     const errorText = await errorElement.getText();
@@ -54,7 +54,7 @@ describe("TC19 — Validar terapia seleccionada", function () {
     const activeStep = await (
       await global.helper.findOrFail(
         "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(@class,'slds-assistive-text')]",
-        "Título de etapa activa"
+        "Título de etapa activa - Debe existir el título de etapa activa en la página de agenda cita"
       )
     ).getText();
 

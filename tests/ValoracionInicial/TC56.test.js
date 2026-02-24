@@ -29,7 +29,7 @@ describe("TC56 — Validar campo ¿Cuántas y con qué frecuencia?", function ()
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC56 — Validar campo ¿Cuántas y con qué frecuencia?", function ()
 
     const alcoholSelect = await global.helper.findOrFail(
       "//select[@name='Tomas_bebidas_alcoh_licas']",
-      "Campo ¿Tomas bebidas alcohólicas?"
+      "Campo ¿Tomas bebidas alcohólicas? - No se encuentra en el formulario"
     );
 
     await alcoholSelect.sendKeys("No");

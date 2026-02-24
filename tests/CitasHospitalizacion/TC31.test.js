@@ -37,7 +37,7 @@ describe("TC31 — Agendamiento semanal", function () {
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(
@@ -55,13 +55,13 @@ describe("TC31 — Agendamiento semanal", function () {
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher desde el cual acceder al calendario"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search"
+      "Search - Debe existir un campo de búsqueda para buscar apps y objetos en el App Launcher"
     );
 
     await searchInput.clear();
@@ -70,7 +70,7 @@ describe("TC31 — Agendamiento semanal", function () {
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario FisioHal - Debe existir una opción para acceder al Calendario FisioHal desde el App Launcher"
     );
 
     await global.driver.sleep(4000);
@@ -128,7 +128,7 @@ describe("TC31 — Agendamiento semanal", function () {
       }
     }
 
-    assert.ok(daysWithEvent >= expectedDays);
+    assert.ok(daysWithEvent >= expectedDays, `Se esperaban al menos ${expectedDays} días con evento, pero se encontraron ${daysWithEvent}`);
   });
 
   afterEach(async () => {

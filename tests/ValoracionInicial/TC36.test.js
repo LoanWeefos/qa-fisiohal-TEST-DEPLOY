@@ -29,7 +29,7 @@ describe("TC36 — Validar campo Especificar alergias", function () {
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC36 — Validar campo Especificar alergias", function () {
 
     const alergiasSelect = await global.helper.findOrFail(
       "//select[@name='Alergias']",
-      "Campo Alergias"
+      "Campo Alergias - No se encuentra en el formulario"
     );
 
     const opcionSiEspecificar = await alergiasSelect.findElement(
@@ -51,7 +51,7 @@ describe("TC36 — Validar campo Especificar alergias", function () {
 
     const especificarInput = await global.helper.findOrFail(
       "//input[@name='Especificar_alergias']",
-      "Campo Especificar alergias"
+      "Campo Especificar alergias - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

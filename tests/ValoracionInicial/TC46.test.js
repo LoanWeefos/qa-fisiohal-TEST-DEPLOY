@@ -29,7 +29,7 @@ describe("TC46 — Validar campo ¿Cuál es enfermedad congénita?", function ()
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC46 — Validar campo ¿Cuál es enfermedad congénita?", function ()
 
     const congenitaSelect = await global.helper.findOrFail(
       "//select[@name='Tienes_alguna_enfermedad_con_la_que_naciste_cong_nita']",
-      "Campo ¿Tienes alguna enfermedad congénita?"
+      "Campo ¿Tienes alguna enfermedad congénita? - No se encuentra en el formulario"
     );
 
     await congenitaSelect.sendKeys("No");

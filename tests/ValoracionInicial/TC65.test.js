@@ -29,8 +29,9 @@ describe("TC65 — Validar campo ¿Alguien en tu familia tiene problemas hormona
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
+
 
     await global.driver.sleep(2000);
 
@@ -38,7 +39,7 @@ describe("TC65 — Validar campo ¿Alguien en tu familia tiene problemas hormona
 
     const metabolismoSelect = await global.helper.findOrFail(
       "//select[@name='Alguien_en_tu_familia_tiene_problemas_hormonales_o_de_metabolismo_como_diabetes']",
-      "Campo ¿Antecedentes familiares hormonales o metabólicos?"
+      "Campo ¿Antecedentes familiares hormonales o metabólicos? - No se encuentra en el formulario"
     );
 
     const optionEls = await metabolismoSelect.findElements(By.xpath(".//option"));

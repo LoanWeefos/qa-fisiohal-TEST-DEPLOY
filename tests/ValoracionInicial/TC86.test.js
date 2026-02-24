@@ -29,7 +29,7 @@ describe("TC86 — Validar campo ¿Cuándo y cómo se presenta el dolor?", funct
   it("El campo solo debe aceptar texto", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC86 — Validar campo ¿Cuándo y cómo se presenta el dolor?", funct
 
     const dolorInput = await global.helper.findOrFail(
       "//input[@name='Cuando_y_c_mo_se_presenta_el_dolor']",
-      "Campo ¿Cuándo y cómo se presenta el dolor?"
+      "Campo ¿Cuándo y cómo se presenta el dolor? - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

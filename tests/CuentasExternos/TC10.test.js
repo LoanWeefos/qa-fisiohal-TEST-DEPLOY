@@ -31,7 +31,7 @@ describe("TC10 — Validar datos completos en Cuenta Externa", function () {
   it("Debe mostrar los datos correctos del registro", async () => {
     const nameElement = await global.helper.findOrFail(
       "//div[@data-target-selection-name='sfdc:RecordField.Account.Name']//span[contains(@class,'test-id__field-value')]",
-      "AccountName"
+      "AccountName - Debe mostrar el nombre de la cuenta externa correctamente en la vista de registro"
     );
     assert.strictEqual(
       (await nameElement.getText()).trim(),
@@ -40,14 +40,14 @@ describe("TC10 — Validar datos completos en Cuenta Externa", function () {
 
     const phoneElement = await global.helper.findOrFail(
       "//div[@data-target-selection-name='sfdc:RecordField.Account.Phone']//span[contains(@class,'test-id__field-value')]",
-      "Phone"
+      "Phone - Debe mostrar el número de teléfono correctamente en la vista de registro"
     );
     const phoneText = (await phoneElement.getText()).replace(/\D/g, "");
     assert.strictEqual(phoneText, expected.phone);
 
     const birthElement = await global.helper.findOrFail(
       "//div[@data-target-selection-name='sfdc:RecordField.Account.Fecha_de_Nacimiento__c']//span[contains(@class,'test-id__field-value')]",
-      "FechaNacimiento"
+      "Fecha de Nacimiento - Debe mostrar la fecha de nacimiento correctamente en la vista de registro"
     );
     assert.strictEqual(
       (await birthElement.getText()).trim(),
@@ -56,7 +56,7 @@ describe("TC10 — Validar datos completos en Cuenta Externa", function () {
 
     const nationalityElement = await global.helper.findOrFail(
       "//div[@data-target-selection-name='sfdc:RecordField.Account.Nacionalidad__c']//span[contains(@class,'test-id__field-value')]",
-      "Nacionalidad"
+      "Nacionalidad - Debe mostrar la nacionalidad correctamente en la vista de registro"
     );
     assert.strictEqual(
       (await nationalityElement.getText()).trim(),

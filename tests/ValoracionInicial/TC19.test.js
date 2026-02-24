@@ -29,7 +29,7 @@ describe("TC19 — Validar campo ¿Le gusta que le hablen de usted o de tú?", f
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC19 — Validar campo ¿Le gusta que le hablen de usted o de tú?", f
 
     const hablarUstedSelect = await global.helper.findOrFail(
       "//select[@name='Le_gusta_que_le_hablen_de_usted']",
-      "Campo ¿Le gusta que le hablen de usted?"
+      "Campo ¿Le gusta que le hablen de usted? - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(
@@ -69,7 +69,7 @@ describe("TC19 — Validar campo ¿Le gusta que le hablen de usted o de tú?", f
 
     const opcionUsted = await global.helper.findOrFail(
       "//select[@name='Le_gusta_que_le_hablen_de_usted']/option[normalize-space()='Usted']",
-      "Opción Usted"
+      "Opción Usted - No se encuentra en el campo ¿Le gusta que le hablen de usted?"
     );
 
     await global.driver.executeScript(
@@ -87,7 +87,7 @@ describe("TC19 — Validar campo ¿Le gusta que le hablen de usted o de tú?", f
 
     const opcionTu = await global.helper.findOrFail(
       "//select[@name='Le_gusta_que_le_hablen_de_usted']/option[normalize-space()='Tu']",
-      "Opción Tu"
+      "Opción Tu - No se encuentra en el campo ¿Le gusta que le hablen de usted?"
     );
 
     await global.driver.executeScript(

@@ -55,7 +55,7 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
 
     let saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar (cita del día)"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(await global.helper.isButtonDisabled(saveBtn), false);
@@ -79,7 +79,7 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
 
     saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar (cita semanal)"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita semanal en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(await global.helper.isButtonDisabled(saveBtn), false);
@@ -95,13 +95,13 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search"
+      "Search - Debe existir un campo de búsqueda para buscar apps y objetos en el App Launcher"
     );
 
     await searchInput.clear();
@@ -110,7 +110,7 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario - Debe existir una opción para acceder al Calendario FisioHal en el App Launcher"
     );
 
     await global.driver.sleep(4000);
@@ -140,6 +140,7 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
       const events = await col.findElements(
         By.xpath(`
             .//a[contains(@class,'fc-time-grid-event')]
+              [.//small[contains(., '${expected.AccountName}')]]
               [.//small[contains(., '${expected.Therapy}')]]
               [.//small[contains(., '${expected.Area}')]]
           `)
@@ -150,7 +151,7 @@ describe("TC33 — Crear cita hoy + semanal y validar semana completa", function
       }
     }
 
-    assert.strictEqual(daysWithEvent, expectedDays);
+    assert.strictEqual(daysWithEvent, expectedDays, `Días con evento - Debería haber eventos desde hoy hasta el viernes (${expectedDays} días), pero se encontraron eventos en ${daysWithEvent} días`);
   });
 
   afterEach(async () => {

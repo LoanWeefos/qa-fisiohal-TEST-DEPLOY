@@ -39,7 +39,7 @@ describe("TC104 — Ingresar como coordinación valores correctos en los campos 
   it("Guardado de campos correctamente y visibilidad de los campos", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -472,14 +472,14 @@ describe("TC104 — Ingresar como coordinación valores correctos en los campos 
 
     await global.helper.safeFindAndClick(
       "//lightning-button-menu//button[@title='More Tabs']",
-      "Botón More Tabs"
+      "Botón More Tabs - Debe existir el botón para mostrar más pestañas en caso de que no quepan todas en la vista"
     );
 
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//lightning-menu-item//span[normalize-space()='Expediente Clínico']",
-      "Tab Expediente Clínico"
+      "Tab Expediente Clínico - Debe existir la opción para ir a la pestaña de Expediente Clínico"
     );
 
     await global.driver.wait(

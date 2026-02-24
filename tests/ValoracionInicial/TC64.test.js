@@ -29,8 +29,9 @@ describe("TC64 — Validar campo ¿Qué tipo de problema?, ¿Qué familiar lo tu
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
+
 
     await global.driver.sleep(2000);
 
@@ -38,7 +39,7 @@ describe("TC64 — Validar campo ¿Qué tipo de problema?, ¿Qué familiar lo tu
 
     const huesosSelect = await global.helper.findOrFail(
       "//select[@name='Alg_n_familiar_ha_tenido_problemas_de_huesos_o_articulaciones_como_artritis_oste']",
-      "Campo ¿Antecedentes familiares de huesos o articulaciones?"
+      "Campo ¿Antecedentes familiares de huesos o articulaciones? - No se encuentra en el formulario"
     );
 
     await huesosSelect.sendKeys("No");

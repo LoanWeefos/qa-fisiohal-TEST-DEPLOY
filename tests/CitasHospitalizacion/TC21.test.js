@@ -39,19 +39,19 @@ describe("TC21 — Validar fecha pasada desde calendario", function () {
 
     await global.helper.safeFindAndClick(
       "//label[normalize-space()='Fecha']/following::input[1]",
-      "Campo Fecha"
+      "Campo Fecha - Debe existir un campo para seleccionar la fecha en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(400);
 
     const yearSelect = await global.helper.findOrFail(
       "//select[contains(@class,'slds-select')]",
-      "Selector de año"
+      "Selector de año - Debe existir un selector de año en el formulario de creación de citas de hospitalización"
     );
     await yearSelect.click();
 
     await global.helper.safeFindAndClick(
       `//option[@value='${expected.PastYear}']`,
-      `Año ${expected.PastYear}`
+      `Año ${expected.PastYear} - Debe existir una opción para el año ${expected.PastYear} en el selector de año del formulario de creación de citas de hospitalización`
     );
     await global.driver.sleep(300);
 
@@ -63,11 +63,11 @@ describe("TC21 — Validar fecha pasada desde calendario", function () {
     while (!visibleMonth.includes(expected.PastMonthLabel) && tries < 12) {
       await global.helper.safeFindAndClick(
         "//button[@title='Previous Month']",
-        "Botón Mes Anterior"
+        "Botón Mes Anterior - Debe existir un botón para retroceder al mes anterior en el calendario de selección de fecha"
       );
       await global.driver.sleep(300);
       visibleMonth = await global.helper
-        .findOrFail("//lightning-calendar//h2", "Encabezado del calendario")
+        .findOrFail("//lightning-calendar//h2", "Encabezado del calendario - Debe existir un encabezado del calendario en el formulario de creación de citas de hospitalización")
         .then((el) => el.getText());
       tries++;
     }
@@ -78,7 +78,7 @@ describe("TC21 — Validar fecha pasada desde calendario", function () {
 
     const dayCell = await global.helper.findOrFail(
       pastDayXpath,
-      "Día pasado en calendario"
+      "Día pasado en calendario - Debe existir una celda para el día pasado seleccionado en el calendario de selección de fecha del formulario de creación de citas de hospitalización"
     );
 
     await dayCell.click();
@@ -89,7 +89,7 @@ describe("TC21 — Validar fecha pasada desde calendario", function () {
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);

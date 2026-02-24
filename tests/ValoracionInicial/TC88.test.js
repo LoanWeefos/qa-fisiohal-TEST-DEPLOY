@@ -29,7 +29,7 @@ describe("TC88 — Validar campo Tiene alguna limitación al movimiento", functi
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC88 — Validar campo Tiene alguna limitación al movimiento", functi
 
     const limitacionSelect = await global.helper.findOrFail(
       "//select[@name='Tiene_alguna_limitaci_n_al_movimiento']",
-      "Campo ¿Tiene alguna limitación al movimiento?"
+      "Campo ¿Tiene alguna limitación al movimiento? - No se encuentra en el formulario"
     );
 
     const optionEls = await limitacionSelect.findElements(By.xpath(".//option"));

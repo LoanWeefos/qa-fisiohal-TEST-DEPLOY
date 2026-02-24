@@ -62,22 +62,22 @@ describe("TC11 — Validar existencia de Tipo de terapia vía búsqueda", functi
     await global.helper.goToAccounts();
     await global.helper.safeFindAndClick(
       "//a[@role='button' and @title='New']",
-      "Botón New Account"
+      "Botón New Account - Debe hacer clic en el botón New para abrir el formulario de creación de cuenta"
     );
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cuenta Externa']/ancestor::label",
-      "Opción Cuenta Externa"
+      "Opción Cuenta Externa - Debe seleccionar la opción 'Cuenta Externa' al crear una nueva cuenta"
     );
     await global.helper.safeFindAndClick(
       "//button[.//span[normalize-space()='Next']]",
-      "Botón Next"
+      "Botón Next - Debe hacer clic en el botón Next para avanzar al formulario de creación de cuenta"
     );
   });
 
   it("Debe encontrar terapias de Externo y no mostrar hospitalización", async () => {
     const input = await global.helper.findOrFail(
       "//input[@role='combobox' and @aria-label='Terapia de interés']",
-      "Input Terapia de interés"
+      "Input Terapia de interés - Debe encontrar el campo de búsqueda para Terapia de interés en el formulario de cuenta externa"
     );
 
     const faltantes = [];

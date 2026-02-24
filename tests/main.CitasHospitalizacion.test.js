@@ -13,7 +13,7 @@ describe("📘 FEATURE — Agendamiento Automatico Hospitalizacion", function ()
     const driver = await loginJwt("/lightning/o/Account/list?filterName=__Recent");
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Agendamiento Automatico Hospitalizacion");
+    logger.info("FEATURE — Agendamiento Automatico Hospitalizacion\n");
   });
 
   require("./CitasHospitalizacion/TC01.test.js");

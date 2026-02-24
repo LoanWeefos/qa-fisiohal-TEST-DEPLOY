@@ -29,7 +29,7 @@ describe("TC58 — Validar campo ¿Qué sustancia usas, cuántas veces y con qu�
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC58 — Validar campo ¿Qué sustancia usas, cuántas veces y con qu�
 
     const drogasSelect = await global.helper.findOrFail(
       "//select[@name='Usas_alguna_droga_o_sustancia_recreativa_como_marihuana_coca_na_etc']",
-      "Campo ¿Usas alguna droga o sustancia recreativa?"
+      "Campo ¿Usas alguna droga o sustancia recreativa? - No se encuentra en el formulario"
     );
 
     await drogasSelect.sendKeys("No");

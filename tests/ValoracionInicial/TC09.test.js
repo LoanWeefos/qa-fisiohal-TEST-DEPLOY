@@ -29,7 +29,7 @@ describe("TC09 — Validar campo nacionalidad", function () {
   it("El campo muestra el valor de la nacionalidad del paciente sin opcion de edición", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -44,7 +44,7 @@ describe("TC09 — Validar campo nacionalidad", function () {
 
     const nacionalidadBtn = await global.helper.findOrFail(
       "//button[@aria-label='Nacionalidad']",
-      "Campo Nacionalidad"
+      "Campo Nacionalidad - No se encuentra el botón para el campo Nacionalidad"
     );
     await nacionalidadBtn.click();
     await global.driver.sleep(600);
@@ -64,7 +64,7 @@ describe("TC09 — Validar campo nacionalidad", function () {
 
     const nacionalidadValueDup = await global.helper.findOrFail(
       "//button[@aria-label='Nacionalidad']//span[contains(@class,'slds-truncate')]",
-      "Valor Nacionalidad (después)"
+      "Valor Nacionalidad (después) - No se encuentra en el formulario"
     );
     const after = (await nacionalidadValueDup.getText()).trim();
 

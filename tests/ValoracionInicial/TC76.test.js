@@ -29,7 +29,7 @@ describe("TC76 — Validar campo ¿Recientemente le han realizado estudios o pro
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC76 — Validar campo ¿Recientemente le han realizado estudios o pro
 
     const procedimientosSelect = await global.helper.findOrFail(
       "//select[@name='Recientemente_le_han_realizado_estudios_o_procedimientos_card_acos_que_hayan_afe']",
-      "Campo procedimientos cardíacos recientes"
+      "Campo procedimientos cardíacos recientes - No se encuentra en el formulario"
     );
 
     const optionEls = await procedimientosSelect.findElements(By.xpath(".//option"));

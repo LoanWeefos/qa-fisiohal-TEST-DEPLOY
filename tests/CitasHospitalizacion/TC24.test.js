@@ -47,7 +47,7 @@ describe("TC24 — Validar eliminar terapia y bloqueo de Guardar", function () {
     const removeBtn =
       "//button[contains(@title,'Remove') or contains(@aria-label,'Eliminar')]";
 
-    await global.helper.safeFindAndClick(removeBtn, "Botón Eliminar Terapia");
+    await global.helper.safeFindAndClick(removeBtn, "Botón Eliminar Terapia - Debe existir un botón para eliminar la terapia seleccionada en el formulario de creación de citas de hospitalización");
     await global.driver.sleep(300);
 
     const pillsAfter = await countTherapies();
@@ -55,7 +55,7 @@ describe("TC24 — Validar eliminar terapia y bloqueo de Guardar", function () {
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);

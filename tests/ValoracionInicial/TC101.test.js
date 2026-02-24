@@ -29,7 +29,7 @@ describe("TC101 — Validar campo ¿Este deporte o actividad ayuda a mejorar su 
   it("Debe mostrar las opciones correctas y permitir seleccionar solo un elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC101 — Validar campo ¿Este deporte o actividad ayuda a mejorar su 
 
     const practicaSelect = await global.helper.findOrFail(
       "//select[@name='Practica_alg_n_deporte_hobbie_o_realiza_alguna_actividad_recreativa_frecuente']",
-      "Campo Práctica actividad recreativa"
+      "Campo Práctica actividad recreativa - No se encuentra en el formulario"
     );
 
     await practicaSelect.sendKeys("Si");
@@ -46,7 +46,7 @@ describe("TC101 — Validar campo ¿Este deporte o actividad ayuda a mejorar su 
 
     const mejoraSelect = await global.helper.findOrFail(
       "//select[@name='Este_deporte_o_actividad_ayuda_a_mejorar_su_padecimiento']",
-      "Campo ¿Este deporte o actividad ayuda a mejorar su padecimiento?"
+      "Campo ¿Este deporte o actividad ayuda a mejorar su padecimiento? - No se encuentra en el formulario"
     );
 
     const optionEls = await mejoraSelect.findElements(By.xpath(".//option"));

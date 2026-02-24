@@ -26,38 +26,38 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
     await global.helper.goToAccount(patientName);
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe registrar una cita recurrente solo Martes y Jueves y reflejarse en calendario", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Terapia"
+      "Terapia - Debe existir una opción de terapia llamada 'E Drenaje Linfatico' en la página de agenda cita"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cubiculo B']",
-      "Cubiculo"
+      "Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
@@ -65,7 +65,7 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     const rowCecilia = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[normalize-space()='Cecilia Ramirez']]",
-      "Cecilia"
+      "Fila Cecilia Ramirez - Debe existir una fila con el nombre 'Cecilia Ramirez' en la tabla de terapeutas"
     );
 
     const therapistRadio = await rowCecilia.findElement(
@@ -76,13 +76,13 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Today"
+      "Boton Today - Debe existir el botón 'Today' para seleccionar la fecha actual en el calendario de selección de horario"
     );
     await global.driver.sleep(1200);
 
@@ -107,26 +107,26 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     const toggle = await global.helper.findOrFail(
       "//span[normalize-space()='¿Deseas activar recurrencia?']/ancestor::label//input[@type='checkbox']",
-      "Recurrencia"
+      "Toggle Recurrencia - Debe existir un toggle para activar recurrencia en la página de agenda cita"
     );
     await global.driver.executeScript("arguments[0].click();", toggle);
     await global.driver.sleep(600);
 
     const cantidadInput = await global.helper.findOrFail(
       "//input[@name='Cantidad_de_Citas']",
-      "Cantidad"
+      "Input Cantidad - Debe existir un input llamado 'Cantidad_de_Citas' en la página de agenda cita"
     );
     await cantidadInput.clear();
     await cantidadInput.sendKeys("4");
@@ -134,11 +134,11 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     const martesCheckbox = await global.helper.findOrFail(
       "//input[@name='D_as_por_agendar' and @value='Martes']",
-      "Martes"
+      "Martes - Debe existir un checkbox para seleccionar el día Martes al activar la recurrencia de la cita"
     );
     const juevesCheckbox = await global.helper.findOrFail(
       "//input[@name='D_as_por_agendar' and @value='Jueves']",
-      "Jueves"
+      "Jueves - Debe existir un checkbox para seleccionar el día Jueves al activar la recurrencia de la cita"
     );
 
     await global.driver.executeScript("arguments[0].click();", martesCheckbox);
@@ -147,31 +147,31 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Finish']",
-      "Finish"
+      "Boton Finish - Debe existir el botón 'Finish' para finalizar el flujo de agenda cita"
     );
     await global.driver.sleep(4000);
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir el botón de App Launcher para buscar el calendario"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search",
+      "Search Input - Debe existir un input de búsqueda en la aplicación",
       60000
     );
 
@@ -181,7 +181,7 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario FisioHal - Debe existir una opción llamada 'Calendario FisioHal' en el App Launcher"
     );
     await global.driver.sleep(3000);
 
@@ -193,7 +193,7 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     const nextCalendarBtn = await global.helper.findOrFail(
       "//button[contains(@class,'fc-next-button')]",
-      "Next calendar"
+      "Next calendar button - Debe existir un botón para avanzar al siguiente rango de fechas en el calendario"
     );
 
     for (let i = 0; i < 4 && (martesCount < 2 || juevesCount < 2); i++) {
@@ -226,7 +226,7 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la página de cuenta"
     );
     await global.driver.sleep(3000);
 
@@ -255,19 +255,19 @@ describe("TC47 — Validar registro de cita recurrente Martes y Jueves", functio
 
       await global.helper.safeFindAndClick(
         "(//button[@name='Delete'])[2]",
-        "Botón Delete"
+        "Botón Delete - Debe existir un botón 'Delete' para eliminar la cita en la página de detalles de la cita"
       );
 
       await global.helper.safeFindAndClick(
         "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-        "Confirmar Delete"
+        "Confirmar Delete - Debe existir un botón 'Delete' para confirmar la eliminación de la cita en la ventana de confirmación"
       );
 
       await global.driver.sleep(2500);
 
       await global.helper.safeFindAndClick(
         "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-        "Pestaña Citas"
+        "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la página de cuenta para verificar si quedan citas por eliminar"
       );
       await global.driver.sleep(2500);
     }

@@ -29,7 +29,7 @@ describe("TC28 — Validar campo Indique la música ambiental", function () {
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -50,7 +50,7 @@ describe("TC28 — Validar campo Indique la música ambiental", function () {
 
     const musicaInput = await global.helper.findOrFail(
       "//input[@name='Indique_la_m_sica_ambiental']",
-      "Campo Indique la música ambiental"
+      "Campo Indique la música ambiental - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

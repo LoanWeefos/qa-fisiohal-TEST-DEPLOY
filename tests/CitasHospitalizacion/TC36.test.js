@@ -127,7 +127,7 @@ describe("TC36 — Validar Evaluación Terapéutica Hospitalización", function 
 
         const saveBtn = await global.helper.findOrFail(
           "//button[normalize-space()='Guardar']",
-          "Guardar"
+          "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
         );
 
         await saveBtn.click();
@@ -142,7 +142,7 @@ describe("TC36 — Validar Evaluación Terapéutica Hospitalización", function 
 
         await global.helper.safeFindAndClick(
           "//a[@role='tab' and (normalize-space()='Citas' or @data-label='Citas')]",
-          "Pestaña Citas"
+          "Pestaña Citas - Debe existir una pestaña para acceder a las citas desde el detalle de la cuenta"
         );
 
         const row = await global.helper.findOrFail("//tbody/tr");
@@ -155,16 +155,16 @@ describe("TC36 — Validar Evaluación Terapéutica Hospitalización", function 
 
         const evalField = await global.helper.findOrFail(
           "//flexipage-field[@data-field-id='RecordEvaluacion_Terapeutica_cField']//lightning-formatted-text",
-          "Evaluación Terapéutica"
+          "Evaluación Terapéutica - Debe existir un campo de evaluación terapéutica en el detalle de la cita"
         );
 
         encontrado = (await evalField.getText()).trim();
 
         if (encontrado !== "General") status = "FAIL";
 
-        await global.helper.safeFindAndClick("(//button[@name='Delete'])[1]");
+        await global.helper.safeFindAndClick("(//button[@name='Delete'])[1]", "Botón Eliminar - Debe existir un botón para eliminar la cita creada en el detalle de la cita");
         await global.helper.safeFindAndClick(
-          "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button"
+          "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button", "Confirmar eliminación - Debe existir un botón para confirmar la eliminación de la cita en el modal de confirmación"
         );
 
         await global.driver.sleep(1500);
@@ -200,12 +200,12 @@ describe("TC36 — Validar Evaluación Terapéutica Hospitalización", function 
         failed.length,
         0,
         `Fallaron ${failed.length} terapias:\n` +
-          failed
-            .map(
-              (f) =>
-                `${f.Terapia} | Territorio: ${f.Territorio} | Encontrado: ${f.Encontrado}`
-            )
-            .join("\n")
+        failed
+          .map(
+            (f) =>
+              `${f.Terapia} | Territorio: ${f.Territorio} | Encontrado: ${f.Encontrado}`
+          )
+          .join("\n")
       );
     } finally {
       await global.driver.quit();

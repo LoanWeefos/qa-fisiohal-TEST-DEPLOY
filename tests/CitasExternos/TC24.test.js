@@ -31,26 +31,26 @@ describe("TC24 — Mostrar lista de áreas vacía al borrar dirección", functio
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe dejar la lista de áreas vacía al borrar la dirección seleccionada", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1000);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir la opción de terapia 'E Drenaje Linfatico' en el step Select Topic"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
@@ -68,7 +68,7 @@ describe("TC24 — Mostrar lista de áreas vacía al borrar dirección", functio
 
     const addressInput = await global.helper.findOrFail(
       "//div[contains(@class,'runtime_appointmentbookingFlowLocation')]//input[contains(@class,'uiInputTextForAutocomplete') and @role='combobox']",
-      "address_input"
+      "Input de dirección - Debe existir el input de dirección en el step Select Service Territory"
     );
 
     await addressInput.sendKeys("a");
@@ -79,7 +79,7 @@ describe("TC24 — Mostrar lista de áreas vacía al borrar dirección", functio
 
     await global.helper.safeFindAndClick(
       "(//a[@role='option'])[1]",
-      "Primera opción de dirección"
+      "Primera opción de dirección - Debe existir la primera opción de dirección en el step Select Service Territory"
     );
     await global.driver.sleep(1500);
 
@@ -92,7 +92,7 @@ describe("TC24 — Mostrar lista de áreas vacía al borrar dirección", functio
     if (areasAfterClear.length === 0) {
       const emptyMsg = await global.helper.findOrFail(
         "//p[contains(.,'No results for that Work Type Group')]",
-        "Mensaje No results"
+        "Mensaje No results - Debe mostrar mensaje 'No results for that Work Type Group' cuando se borra la dirección"
       );
 
       assert.ok(

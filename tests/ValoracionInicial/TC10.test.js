@@ -29,7 +29,7 @@ describe("TC10 — Verificar que el campo Nacionalidad no sea visible", function
   it("El terapeuta no debe ver el campo Nacionalidad", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);

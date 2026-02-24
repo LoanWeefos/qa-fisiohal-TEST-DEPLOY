@@ -29,7 +29,7 @@ describe("TC54 — Validar campo ¿Cuántos cigarrillos al día? ¿Desde cuándo
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC54 — Validar campo ¿Cuántos cigarrillos al día? ¿Desde cuándo
 
     const fumarSelect = await global.helper.findOrFail(
       "//select[@name='Fumas_actualmente_o_has_fumado_antes']",
-      "Campo ¿Fumas actualmente o has fumado antes?"
+      "Campo ¿Fumas actualmente o has fumado antes? - No se encuentra en el formulario"
     );
 
     await fumarSelect.sendKeys("No");

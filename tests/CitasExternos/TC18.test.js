@@ -100,14 +100,14 @@ describe("TC18 — Validar listado de terapias", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe mostrar todas las terapias de externo", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 

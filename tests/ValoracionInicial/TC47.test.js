@@ -29,7 +29,7 @@ describe("TC47 — Validar campo ¿Tuviste alguna enfermedad importante cuando e
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC47 — Validar campo ¿Tuviste alguna enfermedad importante cuando e
 
     const enfermedadInfanciaSelect = await global.helper.findOrFail(
       "//select[@name='Tuviste_alguna_enfermedad_importante_cuando_eras_ni_o_o_ni_a']",
-      "Campo ¿Tuviste alguna enfermedad importante cuando eras niño o niña?"
+      "Campo ¿Tuviste alguna enfermedad importante cuando eras niño o niña? - No se encuentra en el formulario"
     );
 
     const optionEls = await enfermedadInfanciaSelect.findElements(By.xpath(".//option"));

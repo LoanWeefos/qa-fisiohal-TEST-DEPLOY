@@ -29,7 +29,7 @@ describe("TC30 — Validar campo ¿Tiene algún diagnóstico o cual es el motivo
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC30 — Validar campo ¿Tiene algún diagnóstico o cual es el motivo
 
     const diagnosticoInput = await global.helper.findOrFail(
       "//input[@name='Diagnostico_Motivo_Visita__c']",
-      "Campo Diagnóstico / Motivo de visita"
+      "Campo Diagnóstico / Motivo de visita - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

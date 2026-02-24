@@ -29,7 +29,7 @@ describe("TC26 — Validar campo Indique el género", function () {
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -51,7 +51,7 @@ describe("TC26 — Validar campo Indique el género", function () {
     const generoInput = await global.helper.findOrFail(
       "//span[normalize-space()='Indique el género']" +
       "/ancestor::flowruntime-lwc-field//input",
-      "Campo Indique el género"
+      "Campo Indique el género - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

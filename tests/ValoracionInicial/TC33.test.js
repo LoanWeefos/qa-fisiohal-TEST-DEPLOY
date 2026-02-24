@@ -31,7 +31,7 @@ describe("TC33 — Validar campo Adjuntar archivo", function () {
   it("Se debe poder adjuntar un archivo y guardarse en la cuenta del paciente", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -40,7 +40,7 @@ describe("TC33 — Validar campo Adjuntar archivo", function () {
 
     const recetaSelect = await global.helper.findOrFail(
       "//select[@name='Cuenta_con_Receta_m_dica']",
-      "Campo Cuenta con Receta médica"
+      "Campo Cuenta con Receta médica - No se encuentra en el formulario"
     );
 
     await recetaSelect.findElement(
@@ -51,7 +51,7 @@ describe("TC33 — Validar campo Adjuntar archivo", function () {
 
     const fileInput = await global.helper.findOrFail(
       "//input[@type='file' and contains(@id,'input-file')]",
-      "Input Adjuntar archivo"
+      "Input Adjuntar archivo - No se encuentra en el formulario"
     );
 
     const filePath = path.resolve(

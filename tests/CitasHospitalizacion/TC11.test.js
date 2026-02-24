@@ -43,7 +43,7 @@ describe("TC11 — Con datos completos: Guardar debe habilitarse", function () {
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);

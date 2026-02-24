@@ -35,7 +35,7 @@ describe("TC04 — Validar que fechas pasadas no estén disponibles", function (
     await global.helper
       .findOrFail(
         "//label[normalize-space()='Fecha']/following::input[1]",
-        "Campo Fecha"
+        "Campo Fecha - Debe existir un campo de fecha en el formulario de creación de citas de hospitalización"
       )
       .then((el) => el.click());
 
@@ -43,33 +43,33 @@ describe("TC04 — Validar que fechas pasadas no estén disponibles", function (
 
     const yearSelect = await global.helper.findOrFail(
       "//select[contains(@class,'slds-select')]",
-      "Selector de año"
+      "Selector de año - Debe existir un selector de año en el calendario para seleccionar el año deseado"
     );
     await yearSelect.click();
 
     await global.helper
       .findOrFail(
         `//option[@value='${expected.PastYear}']`,
-        "Opción de año pasado"
+        "Opción de año pasado - Debe existir una opción para el año pasado en el selector de años del calendario"
       )
       .then((el) => el.click());
 
     await global.driver.sleep(300);
 
     let visibleMonth = await global.helper
-      .findOrFail("//lightning-calendar//h2", "Título del calendario")
+      .findOrFail("//lightning-calendar//h2", "Título del calendario - Debe existir un título en el calendario que indique el mes y año actualmente visible")
       .then((el) => el.getText());
 
     let tries = 0;
     while (!visibleMonth.includes(expected.PastMonthLabel) && tries < 12) {
       await global.helper
-        .findOrFail("//button[@title='Previous Month']", "Botón mes anterior")
+        .findOrFail("//button[@title='Previous Month']", "Botón mes anterior - Debe existir un botón para navegar al mes anterior en el calendario")
         .then((el) => el.click());
 
       await global.driver.sleep(300);
 
       visibleMonth = await global.helper
-        .findOrFail("//lightning-calendar//h2", "Título del calendario")
+        .findOrFail("//lightning-calendar//h2", "Título del calendario - Debe existir un título en el calendario que indique el mes y año actualmente visible")
         .then((el) => el.getText());
 
       tries++;

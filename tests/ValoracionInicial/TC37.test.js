@@ -29,7 +29,7 @@ describe("TC37 — Validar campo Condiciones médicas previas", function () {
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC37 — Validar campo Condiciones médicas previas", function () {
 
     const condicionesSelect = await global.helper.findOrFail(
       "//select[@name='Condiciones_m_dicas_previas']",
-      "Campo Condiciones médicas previas"
+      "Campo Condiciones médicas previas - No se encuentra en el formulario"
     );
 
     const optionElements = await condicionesSelect.findElements(

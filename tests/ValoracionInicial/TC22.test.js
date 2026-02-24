@@ -30,7 +30,7 @@ describe("TC22 — Validar campo Elija la intensidad de la luz de su preferencia
   it("Comprobar elementos de la lista y solo puede elegir 1 elemento de la lista", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -78,7 +78,7 @@ describe("TC22 — Validar campo Elija la intensidad de la luz de su preferencia
 
     await global.helper.safeFindAndClick(
       `//div[@role='listbox']//span[@title='${expected.seleccionar}']`,
-      `Opción ${expected.seleccionar}`
+      `Opción ${expected.seleccionar} - No se encuentra la opción ${expected.seleccionar} en el campo Intensidad de la luz`
     );
 
     const selectedText = await luzBtn

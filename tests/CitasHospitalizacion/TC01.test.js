@@ -32,7 +32,7 @@ describe("TC01 — Botón Crear Citas Hospitalización", function () {
 
     const btnExists = await global.helper.findOrFail(
       btnXpath,
-      "Botón Crear Citas Hospitalización"
+      "Botón Crear Citas Hospitalización - Debe existir un botón para crear citas de hospitalización en la página de cuenta"
     );
 
     assert.strictEqual(

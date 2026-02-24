@@ -31,7 +31,7 @@ describe("TC07 — Sin Área: no debe permitir agregar terapia", function () {
 
     const areaInput = await global.helper.findOrFail(
       areaInputXpath,
-      "Campo Área de Atención"
+      "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
 
     await global.driver.executeScript(
@@ -48,7 +48,7 @@ describe("TC07 — Sin Área: no debe permitir agregar terapia", function () {
 
     const addBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Agregar']",
-      "Botón Agregar"
+      "Botón Agregar - Debe existir un botón 'Agregar' para añadir terapias en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(addBtn);

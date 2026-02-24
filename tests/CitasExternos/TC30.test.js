@@ -60,42 +60,42 @@ describe("TC30 — Mostrar horarios asignados correctamente por terapeuta", func
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe mostrar el Next Availability dentro del turno asignado", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir la opción de terapia 'E Drenaje Linfatico' en el step Select Topic"
     );
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-text-heading_medium') and normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     const tableXpath =
       "//div[contains(@class,'runtime_appointmentbookingFlowCandidate')]//tbody/tr";
 
-    await global.helper.findOrFail(tableXpath, "Tabla de terapeutas", 20000);
+    await global.helper.findOrFail(tableXpath, "Tabla de terapeutas - Debe existir una tabla de terapeutas en el step Select Candidate", 20000);
 
     const rows = await global.driver.findElements(By.xpath(tableXpath));
     assert.ok(rows.length > 0, "No se encontraron terapeutas en la tabla");

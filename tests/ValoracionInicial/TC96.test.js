@@ -29,7 +29,7 @@ describe("TC96 — Validar campo ¿Cree que la falta de sueño ha empeorado su p
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC96 — Validar campo ¿Cree que la falta de sueño ha empeorado su p
 
     const faltaSuenoSelect = await global.helper.findOrFail(
       "//select[@name='Cree_que_la_falta_de_sue_o_ha_empeorado_su_padecimiento']",
-      "Campo Falta de Sueño"
+      "Campo Falta de Sueño - No se encuentra en el formulario"
     );
 
     const optionEls = await faltaSuenoSelect.findElements(By.xpath(".//option"));

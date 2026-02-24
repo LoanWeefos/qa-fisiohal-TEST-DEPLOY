@@ -26,46 +26,46 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
     await global.helper.goToAccount("TEST TEST");
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe ocultar el horario ya agendado al intentar crear una cita con los mismos datos", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir la opción de terapia 'E Drenaje Linfatico' en el step Select Topic"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-text-heading_medium') and normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
-    await global.helper.findOrFail("//tbody/tr", "Tabla terapeutas", 20000);
+    await global.helper.findOrFail("//tbody/tr", "Tabla terapeutas - Debe existir una tabla con terapeutas", 20000);
 
     const rowCecilia = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[normalize-space()='Cecilia Ramirez']]",
-      "Fila de terapeuta Cecilia Ramirez"
+      "Fila de terapeuta Cecilia Ramirez - Debe existir una fila en la tabla de terapeutas con el nombre 'Cecilia Ramirez'"
     );
 
     const therapistRadio = await rowCecilia.findElement(
@@ -80,13 +80,13 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Boton Today"
+      "Boton Today - Debe existir el botón 'Today' en el calendario"
     );
     await global.driver.sleep(1200);
 
@@ -122,61 +122,61 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Finish']",
-      "Boton Finish"
+      "Boton Finish - Debe existir el botón 'Finish' para confirmar la agenda de la cita"
     );
     await global.driver.sleep(3000);
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir la opción de terapia 'E Drenaje Linfatico' en el step Select Topic"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-text-heading_medium') and normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
@@ -184,7 +184,7 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     const rowCeciliaAgain = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[normalize-space()='Cecilia Ramirez']]",
-      "Fila de terapeuta Cecilia Ramirez"
+      "Fila de terapeuta Cecilia Ramirez - Debe existir una fila en la tabla de terapeutas con el nombre 'Cecilia Ramirez'"
     );
 
     const therapistRadioAgain = await rowCeciliaAgain.findElement(
@@ -199,13 +199,13 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Boton Today"
+      "Boton Today - Debe existir el botón 'Today' en el calendario"
     );
     await global.driver.sleep(1200);
 
@@ -241,7 +241,7 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir la pestaña 'Citas' en la página de cuenta"
     );
     await global.driver.sleep(2500);
 
@@ -261,12 +261,12 @@ describe("TC39 — Validar cita no disponible con mismos datos", function () {
 
     await global.helper.safeFindAndClick(
       "(//button[@name='Delete'])[2]",
-      "Botón Delete"
+      "Botón Delete - Debe existir un botón 'Delete' para eliminar la cita creada"
     );
 
     await global.helper.safeFindAndClick(
       "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-      "Confirmar Delete"
+      "Confirmar Delete - Debe existir un botón para confirmar la eliminación de la cita"
     );
 
     await global.driver.sleep(2000);

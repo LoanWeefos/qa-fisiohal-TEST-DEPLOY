@@ -29,7 +29,7 @@ describe("TC22 — Validar agregar sin terapia seleccionada", function () {
   it("No debe permitir agregar terapia sin seleccionar una", async () => {
     const addBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Agregar']",
-      "Botón Agregar"
+      "Botón Agregar - Debe existir un botón 'Agregar' para añadir terapias en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(addBtn);

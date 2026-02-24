@@ -29,7 +29,7 @@ describe("TC78 — Validar campo ¿Tiene dificultades importantes para ver, incl
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC78 — Validar campo ¿Tiene dificultades importantes para ver, incl
 
     const visionSelect = await global.helper.findOrFail(
       "//select[@name='Tiene_dificultades_importantes_para_ver_incluso_con_el_uso_de_lentes']",
-      "Campo dificultades visuales"
+      "Campo dificultades visuales - No se encuentra en el formulario"
     );
 
     const optionEls = await visionSelect.findElements(By.xpath(".//option"));

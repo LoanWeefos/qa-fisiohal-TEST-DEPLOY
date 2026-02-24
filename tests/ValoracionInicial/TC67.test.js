@@ -29,7 +29,7 @@ describe("TC67 — Validar campo ¿Conoces alguna otra enfermedad importante que
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC67 — Validar campo ¿Conoces alguna otra enfermedad importante que
 
     const repetitivaSelect = await global.helper.findOrFail(
       "//select[@name='Conoces_alguna_otra_enfermedad_importante_que_se_repita_en_tu_familia']",
-      "Campo ¿Conoces alguna otra enfermedad importante que se repita en tu familia?"
+      "Campo ¿Conoces alguna otra enfermedad importante que se repita en tu familia? - No se encuentra en el formulario"
     );
 
     const optionEls = await repetitivaSelect.findElements(By.xpath(".//option"));

@@ -15,7 +15,7 @@ describe("📘 FEATURE — Crear Cuentas Externo", function () {
     );
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Crear Cuentas Externo");
+    logger.info("FEATURE — Crear Cuentas Externo\n");
   });
 
   require("./CuentasExternos/TC01.test.js");

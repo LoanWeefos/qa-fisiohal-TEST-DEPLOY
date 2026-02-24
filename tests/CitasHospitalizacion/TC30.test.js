@@ -45,7 +45,7 @@ describe("TC30 — Asignar terapia donde ya hay otra con el mismo paciente", fun
 
     let saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar (primera cita)"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(
@@ -76,7 +76,7 @@ describe("TC30 — Asignar terapia donde ya hay otra con el mismo paciente", fun
 
     saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar (segunda cita)"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(saveBtn);

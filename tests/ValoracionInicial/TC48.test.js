@@ -29,7 +29,7 @@ describe("TC48 — Validar campo ¿Cuál fue la enfermadad importante cuando era
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC48 — Validar campo ¿Cuál fue la enfermadad importante cuando era
 
     const enfermedadInfanciaSelect = await global.helper.findOrFail(
       "//select[@name='Tuviste_alguna_enfermedad_importante_cuando_eras_ni_o_o_ni_a']",
-      "Campo ¿Tuviste alguna enfermedad importante cuando eras niño o niña?"
+      "Campo ¿Tuviste alguna enfermedad importante cuando eras niño o niña? - No se encuentra en el formulario"
     );
 
     await enfermedadInfanciaSelect.sendKeys("No");

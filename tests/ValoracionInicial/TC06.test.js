@@ -29,7 +29,7 @@ describe("TC06 — Verificar campo Teléfono no visible para Terapeuta", functio
   it("El terapeuta no debe ver el campo Teléfono", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);

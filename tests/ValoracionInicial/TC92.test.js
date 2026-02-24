@@ -29,7 +29,7 @@ describe("TC92 — Validar campo Afectaciones en calidad de vida", function () {
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC92 — Validar campo Afectaciones en calidad de vida", function () {
 
     const calidadSelect = await global.helper.findOrFail(
       "//select[@name='Esta_condici_n_a_afectado_su_calidad_de_vida']",
-      "Campo Calidad de Vida"
+      "Campo Calidad de Vida - No se encuentra en el formulario"
     );
 
     await calidadSelect.sendKeys("Si");
@@ -46,7 +46,7 @@ describe("TC92 — Validar campo Afectaciones en calidad de vida", function () {
 
     const input = await global.helper.findOrFail(
       "//input[@name='Afectaciones_en_calidad_de_vida']",
-      "Campo Afectaciones en calidad de vida"
+      "Campo Afectaciones en calidad de vida - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

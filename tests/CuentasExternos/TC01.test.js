@@ -24,7 +24,7 @@ describe("TC01 — Acceso a Accounts y botón New", function () {
   it("Debe mostrarse el botón New", async () => {
     const newButton = await global.helper.findOrFail(
       "//a[@role='button' and @title='New']",
-      "Botón New"
+      "Botón New - Debe mostrarse el botón New"
     );
 
     assert.ok(newButton);

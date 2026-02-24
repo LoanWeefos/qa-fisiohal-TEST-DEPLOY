@@ -22,7 +22,7 @@ describe("TC15 — Validar cuenta seleccionada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
@@ -30,12 +30,12 @@ describe("TC15 — Validar cuenta seleccionada", function () {
     const clearBtn =
       "//button[@title='Clear Parent Record Selection' and not(@disabled)]";
 
-    await global.helper.safeFindAndClick(clearBtn, "Boton Clear Selection");
+    await global.helper.safeFindAndClick(clearBtn, "Boton Clear Selection - Debe existir el botón 'Clear Parent Record Selection' en la página de cuenta");
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
@@ -45,14 +45,14 @@ describe("TC15 — Validar cuenta seleccionada", function () {
 
     const errorExists = await global.helper.findOrFail(
       errorXpath,
-      "Mensaje de error 'Complete this field.'"
+      "Mensaje de error 'Complete this field.' - Debe existir el mensaje de error 'Complete this field.' en la página de agenda cita"
     );
 
     assert.ok(errorExists, "No se mostró el mensaje 'Complete this field.'");
 
     const stillOnStep = await global.helper.findOrFail(
       "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(.,'Select Attendees')]",
-      "Título de etapa Select Attendees"
+      "Título de etapa Select Attendees - Debe existir el título de etapa 'Select Attendees' en la página de agenda cita"
     );
 
     assert.ok(stillOnStep, "El Flow avanzó de etapa cuando no debía");

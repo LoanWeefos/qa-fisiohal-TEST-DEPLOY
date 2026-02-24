@@ -29,7 +29,7 @@ describe("TC41 — Validar campo ¿Actualmente toma algún medicamento?", functi
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC41 — Validar campo ¿Actualmente toma algún medicamento?", functi
 
     const medicamentoSelect = await global.helper.findOrFail(
       "//select[@name='Actualmente_toma_alg_n_medicamento']",
-      "Campo ¿Actualmente toma algún medicamento?"
+      "Campo ¿Actualmente toma algún medicamento? - No se encuentra en el formulario"
     );
 
     const optionEls = await medicamentoSelect.findElements(By.xpath(".//option"));

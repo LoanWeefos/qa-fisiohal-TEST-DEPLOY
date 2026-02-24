@@ -29,7 +29,7 @@ describe("TC16 — Validar opciones del campo Parentesco", function () {
   it("El campo muestra todos los valores correspondientes", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);

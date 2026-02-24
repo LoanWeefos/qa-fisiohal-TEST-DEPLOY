@@ -29,7 +29,7 @@ describe("TC31 — Validar campo ¿Desde cuándo presenta el padecimiento actual
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC31 — Validar campo ¿Desde cuándo presenta el padecimiento actual
 
     const desdeCuandoInput = await global.helper.findOrFail(
       "//input[@name='Padecimiento_Desde_Cuando__c']",
-      "Campo ¿Desde cuándo presenta el padecimiento actual?"
+      "Campo ¿Desde cuándo presenta el padecimiento actual? - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

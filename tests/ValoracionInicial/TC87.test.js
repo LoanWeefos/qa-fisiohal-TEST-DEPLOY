@@ -29,44 +29,16 @@ describe("TC87 — Validar campo ¿Cómo mejora o desaparece el dolor?", functio
   it("El campo solo debe aceptar texto", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
 
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
+    await global.helper.clickNext(5);
 
     const dolorInput = await global.helper.findOrFail(
       "//input[@name='C_mo_mejora_o_desaparece_el_dolor']",
-      "Campo ¿Cómo mejora o desaparece el dolor?"
+      "Campo ¿Cómo mejora o desaparece el dolor? - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

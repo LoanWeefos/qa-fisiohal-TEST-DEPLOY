@@ -30,7 +30,7 @@ describe("TC04 — Verificar campo Teléfono", function () {
   it("El campo Teléfono se muestra en layout para usuario Secretaria", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);

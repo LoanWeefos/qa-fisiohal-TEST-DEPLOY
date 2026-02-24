@@ -34,17 +34,17 @@ describe("TC18 — Error al agregar terapia sin seleccionar área", function () 
   it("Debe deshabilitar 'Agregar' si no se seleccionó un área", async () => {
     await global.helper.findOrFail(
       "//button[@name='therapy']",
-      "Botón selector de Terapia"
+      "Botón selector de Terapia - Debe existir un botón para seleccionar la terapia en el formulario de creación de citas de hospitalización"
     );
     await global.helper.safeFindAndClick(
       "//button[@name='therapy']",
-      "Botón selector de Terapia"
+      "Botón selector de Terapia - Debe existir un botón para seleccionar la terapia en el formulario de creación de citas de hospitalización"
     );
     await global.driver.sleep(300);
 
     const addBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Agregar']",
-      "Botón Agregar"
+      "Botón Agregar - Debe existir un botón 'Agregar' para añadir terapias en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(addBtn);

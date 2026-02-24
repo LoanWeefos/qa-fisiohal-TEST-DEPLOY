@@ -36,7 +36,7 @@ describe("TC24 — Validar campo Durante su terapia, ¿Le gustaría escuchar mú
   it("Comprobar elementos de la lista y solo puede elegir 1 elemento de la lista", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -45,7 +45,7 @@ describe("TC24 — Validar campo Durante su terapia, ¿Le gustaría escuchar mú
 
     const selectEl = await global.helper.findOrFail(
       "//select[@name='Durante_su_terapia_Le_gustar_a_escuchar_m_sica']",
-      "Campo ¿Le gustaría escuchar música?"
+      "Campo ¿Le gustaría escuchar música? - No se encuentra en el formulario"
     );
 
     const optionEls = await selectEl.findElements(By.xpath("./option"));

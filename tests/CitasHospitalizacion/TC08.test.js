@@ -33,12 +33,12 @@ describe("TC08 — Con Área y Terapia: debe permitir agregar", function () {
     const areaXpath =
       "//label[contains(.,'Área de Atención')]/following::input[1]";
 
-    await global.helper.safeFindAndClick(areaXpath, "Campo Área de Atención");
+    await global.helper.safeFindAndClick(areaXpath, "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización");
     await global.driver.sleep(250);
 
     const area = await global.helper.findOrFail(
       areaXpath,
-      "Campo Área de Atención"
+      "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
 
     await area.sendKeys(Key.CONTROL, "a");
@@ -50,21 +50,21 @@ describe("TC08 — Con Área y Terapia: debe permitir agregar", function () {
     await global.driver.sleep(300);
 
     await global.helper.safeFindAndClick(
-      `//lightning-base-combobox-item//span[@title='${expected.Area}']`, `Área ${expected.Area}`
+      `//lightning-base-combobox-item//span[@title='${expected.Area}']`, `Área ${expected.Area} - Debe existir una opción que contenga '${expected.Area}' en el campo de Área de Atención para seleccionar`
     );
     await global.driver.sleep(250);
 
-    await global.helper.safeFindAndClick("//button[@name='therapy']", "Botón Terapia");
+    await global.helper.safeFindAndClick("//button[@name='therapy']", "Botón Terapia - Debe existir un botón para seleccionar la terapia en el formulario de creación de citas de hospitalización");
     await global.driver.sleep(250);
 
     await global.helper.safeFindAndClick(
-      `//lightning-base-combobox-item//span[@title='${expected.Therapy}']`, `Opción Terapia ${expected.Therapy}`
+      `//lightning-base-combobox-item//span[@title='${expected.Therapy}']`, `Opción Terapia ${expected.Therapy} - Debe existir una opción que contenga '${expected.Therapy}' en el campo de Terapia para seleccionar`
     );
     await global.driver.sleep(250);
 
     const addBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Agregar']",
-      "Botón Agregar"
+      "Botón Agregar - Debe existir un botón 'Agregar' para añadir terapias en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(

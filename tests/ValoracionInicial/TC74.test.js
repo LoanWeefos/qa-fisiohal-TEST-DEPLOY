@@ -29,7 +29,7 @@ describe("TC74 — Validar campo ¿Tiene alguna condición o lesión que le difi
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC74 — Validar campo ¿Tiene alguna condición o lesión que le difi
 
     const condicionSelect = await global.helper.findOrFail(
       "//select[@name='Tiene_alguna_condici_n_o_lesi_n_que_le_dificulte_caminar_o_moverse_con_normalida']",
-      "Campo condición o lesión"
+      "Campo condición o lesión - No se encuentra en el formulario"
     );
 
     const optionEls = await condicionSelect.findElements(By.xpath(".//option"));

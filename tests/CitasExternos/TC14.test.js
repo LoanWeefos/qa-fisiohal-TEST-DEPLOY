@@ -22,7 +22,7 @@ describe("TC14 — Validar cuenta autocompletada en Agenda Cita", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
@@ -32,7 +32,7 @@ describe("TC14 — Validar cuenta autocompletada en Agenda Cita", function () {
 
     const input = await global.helper.findOrFail(
       inputXpath,
-      "Input Parent Record"
+      "Input Parent Record - Debe existir el input 'Parent Record' en el modal de agenda cita"
     );
 
     const dataValue = (await input.getAttribute("data-value"))?.trim() || "";

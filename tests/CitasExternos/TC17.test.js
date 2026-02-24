@@ -23,21 +23,21 @@ describe("TC17 — Pasar Select Attendees (mínimos obligatorios)", function () 
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe avanzar al step 'Select Topic' al dar Next", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     const stepAfter = await (
       await global.helper.findOrFail(
         "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(@class,'slds-assistive-text')]",
-        "Título de etapa activa"
+        "Título de etapa activa - Debe existir el título de etapa activa en la página de agenda cita"
       )
     ).getText();
 

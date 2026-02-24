@@ -29,13 +29,13 @@ describe("TC22 — Validar área seleccionada", function () {
   it("Debe mostrar error si no se selecciona área", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
 
     const currentStep = await (
       await global.helper.findOrFail(
         "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(@class,'slds-assistive-text')]",
-        "Título de etapa activa"
+        "Título de etapa activa - Debe existir el título de etapa activa en la página de agenda cita"
       )
     ).getText();
 
@@ -47,22 +47,22 @@ describe("TC22 — Validar área seleccionada", function () {
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[@title='E Drenaje Linfatico']",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir la opción de terapia 'E Drenaje Linfatico' en el step Select Topic"
     );
     await global.driver.sleep(600);
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
     const errorElement = await global.helper.findOrFail(
       "//a[contains(@class,'errorsListLink') and normalize-space()='Select a service territory.']",
-      "error_service_territory"
+      "Error service territory - Debe mostrar error si no se selecciona área"
     );
 
     const errorText = (await errorElement.getText()).trim();
@@ -75,7 +75,7 @@ describe("TC22 — Validar área seleccionada", function () {
 
     const activeStep = await global.helper.findOrFail(
       "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(@class,'slds-assistive-text')]",
-      "active_step"
+      "Título de etapa activa - Debe existir el título de etapa activa en la página de agenda cita"
     );
 
     const stepText = (await activeStep.getText()).toLowerCase();

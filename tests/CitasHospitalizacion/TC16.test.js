@@ -32,13 +32,13 @@ describe("TC16 — Validar cita agendada en calendario", function () {
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra superior"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search",
+      "Search - Debe existir un campo de búsqueda para buscar aplicaciones y elementos en el App Launcher",
       60000
     );
 
@@ -48,7 +48,7 @@ describe("TC16 — Validar cita agendada en calendario", function () {
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario - Debe existir una opción para ingresar al Calendario FisioHal en el App Launcher"
     );
     await global.driver.sleep(3000);
     await global.driver.navigate().refresh();
@@ -65,7 +65,7 @@ describe("TC16 — Validar cita agendada en calendario", function () {
 
     const nextBtn = await global.helper.findOrFail(
       "//button[contains(@class,'fc-next-button')]",
-      "Botón Next del calendario"
+      "Botón Next del calendario - Debe existir un botón para avanzar al siguiente mes en el calendario de selección de fecha"
     );
 
     let dateVisible = false;

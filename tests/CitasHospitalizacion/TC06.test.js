@@ -48,7 +48,7 @@ describe("TC06 — Terapias filtradas por Área de Atención", function () {
 
     const areaInput = await global.helper.findOrFail(
       areaInputXpath,
-      "Campo Área de Atención"
+      "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
 
     await global.driver.executeScript(
@@ -82,14 +82,14 @@ describe("TC06 — Terapias filtradas por Área de Atención", function () {
     await global.helper
       .findOrFail(
         `//lightning-base-combobox-item//span[contains(@title,'Piso 1')]`,
-        "Opción Área Piso 1"
+        "Opción Área Piso 1 - Debe existir una opción que contenga 'Piso 1' en el campo de Área de Atención para seleccionar"
       )
       .then((opcionArea) => opcionArea.click());
 
     await global.driver.sleep(400);
 
     await global.helper
-      .findOrFail("//button[@name='therapy']", "Botón Terapia")
+      .findOrFail("//button[@name='therapy']", "Botón Terapia - Debe existir un botón para seleccionar la terapia en el formulario de creación de citas de hospitalización")
       .then((botonTerapia) => botonTerapia.click());
 
     await global.driver.sleep(400);

@@ -13,7 +13,7 @@ describe("📘 FEATURE — Agendamiento Manual Externo", function () {
     const driver = await loginJwt("/lightning/o/Account/list?filterName=__Recent");
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Agendamiento Manual Externo");
+    logger.info("FEATURE — Agendamiento Manual Externo\n");
   });
 
   require("./CitasExternos/TC12.test.js");

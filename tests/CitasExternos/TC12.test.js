@@ -22,7 +22,7 @@ describe("TC12 — Mostrar botón Agenda Cita", function () {
   it("Debe mostrarse el botón 'Agenda Cita'", async () => {
     const buttonCita = await global.helper.findOrFail(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
 
     assert.ok(buttonCita);

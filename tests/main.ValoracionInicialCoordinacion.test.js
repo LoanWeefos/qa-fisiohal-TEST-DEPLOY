@@ -18,7 +18,7 @@ describe("📘 FEATURE — Valoración Inicial - Instancia Salesforce", function
 
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Coordinación");
+    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Coordinación\n");
   });
 
   require("./ValoracionInicial/TC11.test.js");

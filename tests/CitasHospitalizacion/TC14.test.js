@@ -31,7 +31,7 @@ describe("TC14 — Validar lista de frecuencias", function () {
   it("Debe mostrar únicamente 'Semanal' y 'Del día' en frecuencia", async () => {
     const freqBtn = await global.helper.findOrFail(
       "//button[@name='Frequency']",
-      "Botón Frecuencia"
+      "Botón Frecuencia - Debe existir un botón para seleccionar la frecuencia en el formulario de creación de citas de hospitalización"
     );
     await freqBtn.click();
     await global.driver.sleep(400);

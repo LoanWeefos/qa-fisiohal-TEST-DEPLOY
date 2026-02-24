@@ -29,7 +29,7 @@ describe("TC84 — Validar campo ¿Ha donado sangre recientemente y ha sentido d
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC84 — Validar campo ¿Ha donado sangre recientemente y ha sentido d
 
     const donacionSelect = await global.helper.findOrFail(
       "//select[@name='Ha_donado_sangre_recientemente_y_ha_sentido_debilidad_o_mareo_despu_s_del_proced']",
-      "Campo donación de sangre y mareo"
+      "Campo donación de sangre y mareo - No se encuentra en el formulario"
     );
 
     const optionEls = await donacionSelect.findElements(By.xpath(".//option"));

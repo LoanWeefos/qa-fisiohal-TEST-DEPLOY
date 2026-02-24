@@ -34,7 +34,7 @@ describe("TC32 — Validar campo ¿Cuenta con Receta médica?", function () {
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -43,7 +43,7 @@ describe("TC32 — Validar campo ¿Cuenta con Receta médica?", function () {
 
     const recetaSelect = await global.helper.findOrFail(
       "//select[@name='Cuenta_con_Receta_m_dica']",
-      "Campo ¿Cuenta con Receta médica?"
+      "Campo ¿Cuenta con Receta médica? - No se encuentra en el formulario"
     );
 
     const optionElements = await recetaSelect.findElements(By.xpath(".//option[not(@value='FlowImplicit__DefaultTextChoiceName')]"));

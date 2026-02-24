@@ -29,7 +29,7 @@ describe("TC83 — Validar campo ¿Ha sufrido alguna caída en los últimos seis
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC83 — Validar campo ¿Ha sufrido alguna caída en los últimos seis
 
     const caidasSelect = await global.helper.findOrFail(
       "//select[@name='Ha_sufrido_alguna_ca_da_en_los_ltimos_seis_meses']",
-      "Campo caídas últimos seis meses"
+      "Campo caídas últimos seis meses - No se encuentra en el formulario"
     );
 
     const optionEls = await caidasSelect.findElements(By.xpath(".//option"));

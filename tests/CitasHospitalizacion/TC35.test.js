@@ -22,13 +22,13 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
   const goToTasks = async () => {
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación"
     );
     await global.driver.sleep(800);
 
     const searchInput = await global.helper.findOrFail(
       "//input[contains(@placeholder,'Search apps and items')]",
-      "Buscador App Launcher"
+      "Buscador App Launcher - Debe existir un campo de búsqueda para el App Launcher en la barra de navegación"
     );
 
     await searchInput.sendKeys("Tasks");
@@ -36,7 +36,7 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
 
     await global.helper.safeFindAndClick(
       "//one-app-launcher-menu-item//span[normalize-space()='Tasks']",
-      "App Tasks"
+      "App Tasks - Debe existir una opción para acceder a Tasks en el App Launcher"
     );
 
     await global.driver.wait(
@@ -47,11 +47,11 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
     await global.driver.navigate().refresh();
 
     await global.helper.safeFindAndClick(
-      "//button[contains(@title,'Select a List View')]"
+      "//button[contains(@title,'Select a List View')]", "Botón Select a List View - Debe existir un botón para seleccionar la vista de lista en la app Tasks"
     );
 
     await global.helper.safeFindAndClick(
-      "//lightning-base-combobox-item//span[normalize-space()='Open Tasks']"
+      "//lightning-base-combobox-item//span[normalize-space()='Open Tasks']", "Open Tasks - Debe existir una opción para seleccionar la vista Open Tasks en la app Tasks"
     );
 
     await global.driver.wait(
@@ -68,7 +68,7 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
 
     await global.driver.wait(until.elementLocated(By.xpath(taskXpath)), 10000);
 
-    await global.helper.safeFindAndClick(taskXpath);
+    await global.helper.safeFindAndClick(taskXpath, "Tarea de error - Debe existir una tarea con el asunto esperado en la lista de Open Tasks");
     await global.driver.navigate().refresh();
     await global.driver.sleep(1000);
 
@@ -79,7 +79,7 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
 
     const commentsEl = await global.helper.findOrFail(
       commentsXpath,
-      "Campo Comments"
+      "Campo Comments - Debe existir un campo de texto en la sección Comments del detalle de la tarea para revisar el error registrado"
     );
 
     return await commentsEl.getText();
@@ -114,7 +114,7 @@ describe("TC35 — Validar NO disponibilidad por Territorio vs Terapia (Task de 
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     await saveBtn.click();

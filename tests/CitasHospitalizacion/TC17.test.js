@@ -19,7 +19,7 @@ describe("TC17 — Cambio de área elimina terapias no compatibles", function ()
   const countTherapies = async () => {
     await global.helper.findOrFail(
       "//div[contains(@class,'pill-list')]",
-      "Contenedor de terapias seleccionadas"
+      "Contenedor de terapias seleccionadas - Debe existir un contenedor que muestre las terapias seleccionadas en el formulario de creación de citas de hospitalización"
     );
 
     const pills = await global.driver.findElements(

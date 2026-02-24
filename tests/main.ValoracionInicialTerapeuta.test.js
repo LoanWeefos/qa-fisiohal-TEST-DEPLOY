@@ -18,7 +18,7 @@ describe("📘 FEATURE — Valoración Inicial - Instancia Salesforce", function
 
     global.driver = driver;
     global.helper = new browser(driver);
-    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Terapeuta");
+    logger.info("FEATURE — Valoración Inicial - Instancia Salesforce - Terapeuta\n");
   });
 
   require("./ValoracionInicial/TC01.test.js");

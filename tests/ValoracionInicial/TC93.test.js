@@ -29,7 +29,7 @@ describe("TC93 — Validar campo ¿Ha notado si su estrés o estado emocional af
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC93 — Validar campo ¿Ha notado si su estrés o estado emocional af
 
     const estresSelect = await global.helper.findOrFail(
       "//select[@name='Ha_notado_si_su_estr_s_o_estado_emocional_afecta_su_dolor_o_malestar']",
-      "Campo Estrés o estado emocional"
+      "Campo Estrés o estado emocional - No se encuentra en el formulario"
     );
 
     const optionEls = await estresSelect.findElements(

@@ -20,13 +20,13 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
   const goToTasks = async () => {
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "Botón App Launcher"
+      "Botón App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación"
     );
     await global.driver.sleep(800);
 
     const searchInput = await global.helper.findOrFail(
       "//input[contains(@placeholder,'Search apps and items')]",
-      "Input búsqueda App Launcher"
+      "Input búsqueda App Launcher - Debe existir un campo de búsqueda para el App Launcher en la barra de navegación"
     );
 
     await searchInput.clear();
@@ -35,7 +35,7 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
 
     await global.helper.safeFindAndClick(
       "//one-app-launcher-menu-item//span[normalize-space()='Tasks']",
-      "App Tasks"
+      "App Tasks - Debe existir una opción para acceder a la app Tasks desde el App Launcher"
     );
 
     await global.driver.wait(
@@ -47,12 +47,12 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
     await global.driver.sleep(1000);
 
     await global.helper.safeFindAndClick(
-      "//button[contains(@title,'Select a List View')]"
+      "//button[contains(@title,'Select a List View')]", "Botón Select a List View - Debe existir un botón para seleccionar la vista de lista en la app Tasks"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
-      "//lightning-base-combobox-item//span[normalize-space()='Open Tasks']"
+      "//lightning-base-combobox-item//span[normalize-space()='Open Tasks']", "Open Tasks - Debe existir una opción para seleccionar la vista Open Tasks en la app Tasks"
     );
 
     await global.driver.wait(
@@ -69,7 +69,7 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
 
     await global.driver.wait(until.elementLocated(By.xpath(taskXpath)), 10000);
 
-    await global.helper.safeFindAndClick(taskXpath);
+    await global.helper.safeFindAndClick(taskXpath, "Task de error - Debe existir una Task con el asunto esperado en la vista Open Tasks de la app Tasks");
     await global.driver.navigate().refresh();
     await global.driver.sleep(1000);
 
@@ -80,7 +80,7 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
 
     const commentsEl = await global.helper.findOrFail(
       commentsXpath,
-      "Campo Comments"
+      "Campo Comments - Debe existir un campo de texto en la sección Comments de la Task para revisar el mensaje de error registrado"
     );
 
     return await commentsEl.getText();
@@ -108,7 +108,7 @@ describe("TC32 — Agendamiento semanal sin disponibilidad (Task de error)", fun
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(

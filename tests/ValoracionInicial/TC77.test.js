@@ -29,7 +29,7 @@ describe("TC77 — Validar campo Si está embarazada, ¿se encuentra en las últ
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC77 — Validar campo Si está embarazada, ¿se encuentra en las últ
 
     const embarazoSelect = await global.helper.findOrFail(
       "//select[@name='Si_est_embarazada_se_encuentra_en_las_ltimas_etapas_de_la_gestaci_n_y_ha_notado']",
-      "Campo embarazo y equilibrio"
+      "Campo embarazo y equilibrio - No se encuentra en el formulario"
     );
 
     const optionEls = await embarazoSelect.findElements(By.xpath(".//option"));

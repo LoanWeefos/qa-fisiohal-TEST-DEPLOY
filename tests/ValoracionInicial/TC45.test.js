@@ -29,7 +29,7 @@ describe("TC45 — Validar campo ¿Tienes alguna enfermedad con la que naciste (
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC45 — Validar campo ¿Tienes alguna enfermedad con la que naciste (
 
     const congenitaSelect = await global.helper.findOrFail(
       "//select[@name='Tienes_alguna_enfermedad_con_la_que_naciste_cong_nita']",
-      "Campo ¿Tienes alguna enfermedad con la que naciste (congénita)?"
+      "Campo ¿Tienes alguna enfermedad con la que naciste (congénita)? - No se encuentra en el formulario"
     );
 
     const optionEls = await congenitaSelect.findElements(By.xpath(".//option"));

@@ -29,7 +29,7 @@ describe("TC07 — Validar campo Email inválido", function () {
   it("Se muestra un mensaje de validación indicando que el formato no es válido", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);

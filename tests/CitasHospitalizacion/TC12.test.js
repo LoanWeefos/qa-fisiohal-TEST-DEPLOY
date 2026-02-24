@@ -47,7 +47,7 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(
@@ -67,13 +67,13 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación superior"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search",
+      "Search - Debe existir un campo de búsqueda para buscar aplicaciones y elementos en el App Launcher",
       60000
     );
 
@@ -83,7 +83,7 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario - Debe existir una opción para acceder al Calendario FisioHal en el App Launcher"
     );
     await global.driver.sleep(3000);
     await global.driver.navigate().refresh();
@@ -99,7 +99,7 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
 
     const nextBtn = await global.helper.findOrFail(
       "//button[contains(@class,'fc-next-button')]",
-      "Botón Next del calendario"
+      "Botón Next del calendario - Debe existir un botón para avanzar al siguiente mes en el calendario de selección de fecha"
     );
 
     let dateVisible = false;
@@ -144,7 +144,7 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la vista de cuenta para acceder a las citas creadas"
     );
     await global.driver.sleep(2500);
 
@@ -185,14 +185,14 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
     const startDateUI = await global.helper
       .findOrFail(
         "//flexipage-field[@data-field-id='RecordStartDateField']//lightning-formatted-text",
-        "Fecha inicio"
+        "Fecha inicio - Debe existir un campo que muestre la fecha de inicio de la cita en el detalle de la cita creada"
       )
       .then((e) => e.getText());
 
     const endDateUI = await global.helper
       .findOrFail(
         "//flexipage-field[@data-field-id='RecordEndDateField']//lightning-formatted-text",
-        "Fecha fin"
+        "Fecha fin - Debe existir un campo que muestre la fecha de fin de la cita en el detalle de la cita creada"
       )
       .then((e) => e.getText());
 
@@ -203,16 +203,6 @@ describe("TC12 — Crear cita con datos completos y validar evento en calendario
     assert.ok(
       territoryNorm.includes(expected.Area.toLowerCase()),
       `Área esperada "${expected.Area}", encontrada "${territoryUI}"`
-    );
-
-    await global.helper.safeFindAndClick(
-      "(//button[@name='Delete'])[1]",
-      "Botón Delete"
-    );
-
-    await global.helper.safeFindAndClick(
-      "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-      "Confirmar Delete"
     );
 
     const expectedDate = `${expected.Day}/12/${expected.Year}`;

@@ -29,7 +29,7 @@ describe("TC62 — Validar campo ¿Qué tipo de cáncer?, ¿Qué familiar lo tuv
   it(`Debe funcionar correctamente cuando se selecciona "Si"`, async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC62 — Validar campo ¿Qué tipo de cáncer?, ¿Qué familiar lo tuv
 
     const cancerSelect = await global.helper.findOrFail(
       "//select[@name='Hay_antecedentes_de_c_ncer_en_tu_familia']",
-      "Campo ¿Hay antecedentes de cáncer en tu familia?"
+      "Campo ¿Hay antecedentes de cáncer en tu familia? - No se encuentra en el formulario"
     );
 
     await cancerSelect.sendKeys("No");

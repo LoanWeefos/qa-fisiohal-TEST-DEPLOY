@@ -23,14 +23,14 @@ describe("TC20 — Validar seleccionar 2 terapias", function () {
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Boton Agenda Cita"
+      "Boton Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
   });
 
   it("Debe deseleccionar la primera terapia al seleccionar la segunda", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
 
     const radios = await global.driver.wait(
@@ -73,14 +73,14 @@ describe("TC20 — Validar seleccionar 2 terapias", function () {
   it("Debe permitir avanzar con solo una terapia seleccionada", async () => {
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await driver.sleep(1200);
 
     const activeStep = await (
       await global.helper.findOrFail(
         "//lightning-progress-step[contains(@class,'slds-is-active')]//span[contains(@class,'slds-assistive-text')]",
-        "Título de etapa activa"
+        "Título de etapa activa - Debe existir el título de etapa activa en la página de agenda cita"
       )
     ).getText();
 

@@ -30,17 +30,17 @@ describe("TC02 — Formulario: campos clave visibles", function () {
   it("Debe mostrarse Frecuencia, Fecha y Área de Atención", async () => {
     const frequency = await global.helper.findOrFail(
       "//label[normalize-space()='Frecuencia de Terapia']",
-      "Frecuencia de Terapia"
+      "Frecuencia de Terapia - Debe existir el campo 'Frecuencia de Terapia' en el formulario de creación de citas de hospitalización"
     );
 
     const date = await global.helper.findOrFail(
       "//label[normalize-space()='Fecha']",
-      "Fecha"
+      "Fecha - Debe existir el campo 'Fecha' en el formulario de creación de citas de hospitalización"
     );
 
     const area = await global.helper.findOrFail(
       "//label[normalize-space()='Área de Atención']",
-      "Área de Atención"
+      "Área de Atención - Debe existir el campo 'Área de Atención' en el formulario de creación de citas de hospitalización"
     );
 
     assert.ok(frequency, "No se encontró el campo 'Frecuencia de Terapia'.");

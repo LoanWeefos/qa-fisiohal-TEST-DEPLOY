@@ -49,7 +49,7 @@ describe("TC34 — Validar horarios disponibles por Territorios de servicio vs t
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(await global.helper.isButtonDisabled(saveBtn), false);
@@ -65,13 +65,13 @@ describe("TC34 — Validar horarios disponibles por Territorios de servicio vs t
 
     await global.helper.safeFindAndClick(
       "//button[contains(@title,'App Launcher')]",
-      "App Launcher"
+      "App Launcher - Debe existir un botón para abrir el App Launcher en la barra de navegación"
     );
     await global.driver.sleep(600);
 
     const searchInput = await global.helper.findOrFail(
       "//input[@type='search' and contains(@placeholder,'Search apps and items')]",
-      "Search"
+      "Search - Debe existir un campo de búsqueda para buscar apps y objetos en el App Launcher"
     );
 
     await searchInput.clear();
@@ -80,7 +80,7 @@ describe("TC34 — Validar horarios disponibles por Territorios de servicio vs t
 
     await global.helper.safeFindAndClick(
       "//a[contains(@class,'al-menu-item') and contains(@data-label,'Calendario FisioHal')]",
-      "Calendario"
+      "Calendario - Debe existir una opción para acceder al Calendario FisioHal en el App Launcher"
     );
 
     await global.driver.sleep(4000);
@@ -93,7 +93,7 @@ describe("TC34 — Validar horarios disponibles por Territorios de servicio vs t
 
     const nextBtn = await global.helper.findOrFail(
       "//button[contains(@class,'fc-next-button')]",
-      "Botón Next calendario"
+      "Botón Next calendario - Debe existir un botón para avanzar al siguiente periodo en el calendario"
     );
 
     await global.driver.sleep(800);

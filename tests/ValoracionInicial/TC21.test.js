@@ -41,7 +41,7 @@ describe("TC21 — Validar campo Idioma de preferencia", function () {
   it("Comprobar elementos de la lista y solo puede elegir 1 elemento de la lista", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -51,7 +51,7 @@ describe("TC21 — Validar campo Idioma de preferencia", function () {
     const idiomaSelect = await global.helper.findOrFail(
       "//span[normalize-space()='Idioma de preferencia']" +
       "/ancestor::flowruntime-lwc-field//select",
-      "Campo Idioma de preferencia"
+      "Campo Idioma de preferencia - No se encuentra en el formulario"
     );
 
     await global.driver.executeScript(

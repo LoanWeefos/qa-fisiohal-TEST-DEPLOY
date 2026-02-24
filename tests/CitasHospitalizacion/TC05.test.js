@@ -49,13 +49,13 @@ describe("TC05 — Áreas Hospitalización lista completa", function () {
   it("Debe encontrar cada área al buscarla", async () => {
     const input = await global.helper.findOrFail(
       "//input[@role='combobox' and @aria-label='Área de Atención']",
-      "Campo Área de Atención"
+      "Campo Área de Atención - Debe existir un campo de selección para el área de atención en el formulario de creación de citas de hospitalización"
     );
 
     const faltantes = [];
 
     await global.helper.safeFindAndClick(
-      "//button[@data-clear-selection-button and contains(@title,'Área de Atención')]"
+      "//button[@data-clear-selection-button and contains(@title,'Área de Atención')]", "Botón limpiar selección Área de Atención - Debe existir un botón para limpiar la selección del área de atención en el formulario de creación de citas de hospitalización"
     );
 
     for (const area of expectedAreas) {

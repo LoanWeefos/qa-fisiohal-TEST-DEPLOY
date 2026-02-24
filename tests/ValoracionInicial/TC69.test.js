@@ -29,7 +29,7 @@ describe("TC69 — Validar campo Auxiliares de marcha", function () {
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC69 — Validar campo Auxiliares de marcha", function () {
 
     const auxiliaresSelect = await global.helper.findOrFail(
       "//select[@name='Auxiliares_de_marcha']",
-      "Campo Auxiliares de marcha"
+      "Campo Auxiliares de marcha - No se encuentra en el formulario"
     );
 
     const optionEls = await auxiliaresSelect.findElements(By.xpath(".//option"));

@@ -30,37 +30,37 @@ describe("TC48 — Validar marca Cita empalmada", function () {
   it("Agenda correctamente la cita a la misma hora", async () => {
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Agenda Cita"
+      "Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[contains(text(),'E ATM')]",
-      "Opción terapia E ATM"
+      "Opción terapia E ATM - Debe existir una opción de terapia llamada 'E ATM' en la página de agenda cita"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cubiculo B']",
-      "Opción Cubiculo B"
+      "Opción Cubiculo B - Debe existir el área 'Cubiculo B' en las opciones de áreas del step Select Service Territory"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
@@ -68,7 +68,7 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     const therapistCecilia = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[contains(text(),'Cecilia')]]//input[@type='radio']",
-      "Terapeuta Cecilia"
+      "Terapeuta Cecilia - Debe existir una fila con el nombre 'Cecilia Ramirez' en la tabla de terapeutas y un radio button para seleccionarla"
     );
 
     await global.driver.executeScript(
@@ -79,13 +79,13 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Boton Today"
+      "Boton Today - Debe existir el botón 'Today' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
@@ -120,67 +120,67 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Finish']",
-      "Boton Finish"
+      "Boton Finish - Debe existir el botón 'Finish' para finalizar la agenda de la cita"
     );
     await global.driver.sleep(3000);
 
     await global.helper.safeFindAndClick(
       "//button[@name='Account.Agenda_Cita']",
-      "Agenda Cita"
+      "Agenda Cita - Debe existir el botón 'Agenda Cita' en la página de cuenta para agendar la segunda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(800);
 
     await global.helper.safeFindAndClick(
       "//span[contains(@class,'slds-visual-picker__figure')]//span[contains(text(),'E Drenaje Linfatico')]",
-      "Opción terapia E Drenaje Linfatico"
+      "Opción terapia E Drenaje Linfatico - Debe existir una opción de terapia llamada 'E Drenaje Linfatico' en la página de agenda cita para la segunda cita"
     );
     await global.driver.sleep(500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
     await global.helper.safeFindAndClick(
       "//span[normalize-space()='Cubiculo C']",
-      "Opción Cubiculo C"
+      "Opción Cubiculo C - Debe existir el área 'Cubiculo C' en las opciones de áreas del step Select Service Territory para la segunda cita"
     );
     await global.driver.sleep(600);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     const therapistAndrea = await global.helper.findOrFail(
       "//tbody/tr[.//lightning-base-formatted-text[contains(text(),'Andrea')]]//input[@type='radio']",
-      "Terapeuta Andrea"
+      "Terapeuta Andrea - Debe existir una fila con el nombre 'Andrea Ramirez' en la tabla de terapeutas y un radio button para seleccionarla"
     );
 
     await global.driver.executeScript(
@@ -191,13 +191,13 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(2000);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Today']",
-      "Boton Today"
+      "Boton Today - Debe existir el botón 'Today' en la página de agenda cita"
     );
     await global.driver.sleep(1200);
 
@@ -222,7 +222,7 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     const slotDuplicado = await global.helper.findOrFail(
       `//span[contains(@class,'slds-radio_faux')][normalize-space()='${selectedSlotText}']`,
-      "Slot duplicado"
+      "Slot duplicado - Debe existir un slot con el mismo horario que la primera cita para validar la marca de cita empalmada"
     );
 
     await global.driver.executeScript(
@@ -234,25 +234,25 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Next']",
-      "Boton Next"
+      "Boton Next - Debe existir el botón 'Next' en la página de agenda cita"
     );
     await global.driver.sleep(1500);
 
     await global.helper.safeFindAndClick(
       "//button[normalize-space()='Finish']",
-      "Boton Finish"
+      "Boton Finish - Debe existir el botón 'Finish' para finalizar la agenda de la cita"
     );
     await global.driver.sleep(3000);
 
@@ -261,7 +261,7 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la página de cuenta para verificar las citas agendadas"
     );
     await global.driver.sleep(2500);
 
@@ -281,12 +281,12 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     const citaEmpalmadaChecked = await global.helper.findOrFail(
       "//span[normalize-space()='Cita empalmada']/ancestor::div[contains(@class,'slds-form-element')]//lightning-input//input[@type='checkbox' and @checked]",
-      "Checkbox Cita empalmada marcado | No se muestra la advertencia de cita empalmada"
+      "Checkbox Cita empalmada marcado - No se muestra la advertencia de cita empalmada"
     );
 
     const warningIcon = await global.helper.findOrFail(
       "//span[normalize-space()='Cita empalmada']/ancestor::div[contains(@class,'slds-form-element')]//lightning-icon[contains(@class,'slds-icon-utility-warning')]",
-      "Icono warning Cita empalmada"
+      "Icono warning Cita empalmada - Debe existir un icono de advertencia al lado del checkbox de cita empalmada"
     );
 
     assert.ok(citaEmpalmadaChecked, "Cita empalmada NO está marcada");
@@ -302,7 +302,7 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
     await global.helper.safeFindAndClick(
       "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-      "Pestaña Citas"
+      "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la página de cuenta para eliminar las citas agendadas"
     );
     await global.driver.sleep(3000);
 
@@ -322,12 +322,12 @@ describe("TC48 — Validar marca Cita empalmada", function () {
 
       await global.helper.safeFindAndClick(
         "(//button[@name='Delete'])[2]",
-        "Botón Delete"
+        "Botón Delete - Debe existir un botón 'Delete' para eliminar la cita en la página de detalles de la cita"
       );
 
       await global.helper.safeFindAndClick(
         "//button[contains(@class,'forceActionButton')]//span[normalize-space()='Delete']/ancestor::button",
-        "Confirmar Delete"
+        "Confirmar Delete - Debe existir un botón 'Delete' para confirmar la eliminación de la cita en la ventana de confirmación"
       );
 
       await global.driver.sleep(2500);
@@ -335,7 +335,7 @@ describe("TC48 — Validar marca Cita empalmada", function () {
       if (i < 1) {
         await global.helper.safeFindAndClick(
           "//a[@role='tab' and (@data-label='Citas' or normalize-space()='Citas')]",
-          "Pestaña Citas"
+          "Pestaña Citas - Debe existir una pestaña llamada 'Citas' en la página de cuenta para verificar si quedan citas por eliminar"
         );
         await global.driver.sleep(2500);
       }

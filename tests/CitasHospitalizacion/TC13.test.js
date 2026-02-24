@@ -32,7 +32,7 @@ describe("TC13 — Al crear muchas citas debe fallar por disponibilidad", functi
 
     const saveBtn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' para guardar la cita en el formulario de creación de citas de hospitalización"
     );
 
     assert.strictEqual(await global.helper.isButtonDisabled(saveBtn), false);

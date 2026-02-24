@@ -29,7 +29,7 @@ describe("TC03 — Guardar deshabilitado con formulario vacío", function () {
   it("El botón Guardar debe estar deshabilitado cuando no hay datos", async () => {
     const btn = await global.helper.findOrFail(
       "//button[normalize-space()='Guardar']",
-      "Botón Guardar"
+      "Botón Guardar - Debe existir un botón 'Guardar' en el formulario de creación de citas de hospitalización"
     );
 
     const isDisabled = await global.helper.isButtonDisabled(btn);

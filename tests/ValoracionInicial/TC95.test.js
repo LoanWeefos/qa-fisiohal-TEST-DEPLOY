@@ -29,7 +29,7 @@ describe("TC95 — Validar campo ¿Cómo ha sido su calidad de sueño en las úl
   it("Comprobar elementos en el campo y solo elegir 1 elemento", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
@@ -38,7 +38,7 @@ describe("TC95 — Validar campo ¿Cómo ha sido su calidad de sueño en las úl
 
     const suenoSelect = await global.helper.findOrFail(
       "//select[@name='C_mo_ha_sido_su_calidad_de_sue_o_en_las_ltimas_semanas']",
-      "Campo Calidad de Sueño"
+      "Campo Calidad de Sueño - No se encuentra en el formulario"
     );
 
     const optionEls = await suenoSelect.findElements(

@@ -29,50 +29,16 @@ describe("TC99 — Validar campo Frecuencia semanal de la actividad", function (
   it("El campo solo debe aceptar texto, inidicar con un mensaje de advertencia", async () => {
     await global.helper.safeFindAndClick(
       "//lightning-icon[@title='Primera vez']/ancestor::span[contains(@class,'slds-visual-picker__figure')]",
-      "Opción Primera vez"
+      "Opción Primera vez - Debe existir un botón para seleccionar que es la primera vez del paciente"
     );
 
     await global.driver.sleep(2000);
 
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
-
-    await global.helper.safeFindAndClick(
-      "//button[normalize-space()='Next']",
-      "Boton Next"
-    );
-    await global.driver.sleep(800);
+    await global.helper.clickNext(6);
 
     const practicaSelect = await global.helper.findOrFail(
       "//select[@name='Practica_alg_n_deporte_hobbie_o_realiza_alguna_actividad_recreativa_frecuente']",
-      "Campo Práctica actividad recreativa"
+      "Campo Práctica actividad recreativa - No se encuentra en el formulario"
     );
 
     await practicaSelect.sendKeys("No");
