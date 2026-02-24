@@ -133,7 +133,7 @@ jobs:
           path: merged-results
 
       - name: 🔀 Merge Allure Results
-       run: |
+        run: |
             mkdir -p allure-results
             find merged-results -type f -exec cp {} allure-results/ \;
 
