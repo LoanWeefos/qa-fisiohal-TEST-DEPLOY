@@ -134,8 +134,8 @@ jobs:
 
       - name: 🔀 Merge Allure Results
        run: |
-        mkdir -p allure-results
-        find merged-results -type f -exec cp {} allure-results/ \;
+            mkdir -p allure-results
+            find merged-results -type f -exec cp {} allure-results/ \;
 
       - name: 📊 Generate Single Page Report
         run: npx allure generate allure-results --clean -o allure-report --single-file
